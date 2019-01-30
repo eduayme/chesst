@@ -1,6 +1,8 @@
-<p align="center">[chesst.org](http://chesst.org)</p>
+# [chesst.org](https://chesst.org)
+
+ChessT is a project where you can find chess tournaments around the world.
 
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ChessT is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
