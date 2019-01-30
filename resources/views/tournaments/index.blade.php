@@ -7,6 +7,7 @@
         @if(session()->get('success'))
 
             <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ session()->get('success') }}
             </div><br/>
 
@@ -86,10 +87,5 @@
         $('#tour').DataTable({
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
         });
-        window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove();
-            });
-        }, 3000);
     });
 </script>
