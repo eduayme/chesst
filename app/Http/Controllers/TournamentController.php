@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ChessT\Http\Controllers;
 
-use App\Tournament;
+use ChessT\Tournament;
 use Illuminate\Http\Request;
 
 class TournamentController extends Controller
@@ -38,22 +38,22 @@ class TournamentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'category'=> 'required',
-            'begin' => 'required|date',
-            'end' => 'required|date',
-            'country' => 'required',
-            'city' => 'required',
-            'website' => 'required|url'
+            'name'     =>'required',
+            'category' => 'required',
+            'begin'    => 'required|date',
+            'end'      => 'required|date',
+            'country'  => 'required',
+            'city'     => 'required',
+            'website'  => 'required|url'
         ]);
         $tournament = new Tournament([
-            'name' => $request->get('name'),
+            'name'     => $request->get('name'),
             'category' => $request->get('category'),
-            'begin' => $request->get('begin'),
-            'end' => $request->get('end'),
-            'country' => $request->get('country'),
-            'city' => $request->get('city'),
-            'website' => $request->get('website')
+            'begin'    => $request->get('begin'),
+            'end'      => $request->get('end'),
+            'country'  => $request->get('country'),
+            'city'     => $request->get('city'),
+            'website'  => $request->get('website')
         ]);
         $tournament->save();
         return redirect('/tournaments')->with('success', $tournament->name .' has been added');
@@ -95,23 +95,23 @@ class TournamentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=>'required',
-            'category'=> 'required',
-            'begin' => 'required|date',
-            'end' => 'required|date',
-            'country' => 'required',
-            'city' => 'required',
-            'website' => 'required|url'
+            'name'     =>'required',
+            'category' => 'required',
+            'begin'    => 'required|date',
+            'end'      => 'required|date',
+            'country'  => 'required',
+            'city'     => 'required',
+            'website'  => 'required|url'
         ]);
 
         $tournament = Tournament::find($id);
-        $tournament->name = $request->get('name');
+        $tournament->name     = $request->get('name');
         $tournament->category = $request->get('category');
-        $tournament->begin = $request->get('begin');
-        $tournament->end = $request->get('end');
-        $tournament->country = $request->get('country');
-        $tournament->city = $request->get('city');
-        $tournament->website = $request->get('website');
+        $tournament->begin    = $request->get('begin');
+        $tournament->end      = $request->get('end');
+        $tournament->country  = $request->get('country');
+        $tournament->city     = $request->get('city');
+        $tournament->website  = $request->get('website');
         $tournament->save();
 
         return redirect('/tournaments')->with('success', $tournament->name .' has been updated');

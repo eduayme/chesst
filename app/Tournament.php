@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ChessT;
 
 use Illuminate\Database\Eloquent\Model;
 

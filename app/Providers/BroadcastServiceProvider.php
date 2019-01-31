@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ChessT\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
