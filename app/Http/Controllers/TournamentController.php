@@ -38,7 +38,7 @@ class TournamentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     =>'required',
+            'name'     => 'required|string|max:50',
             'category' => 'required',
             'begin'    => 'required|date',
             'end'      => 'required|date',

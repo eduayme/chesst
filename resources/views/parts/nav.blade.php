@@ -45,7 +45,7 @@
 
                     @else
                         <li class="nav-item" style="margin-right: 50px">
-                            <a href="../tournaments/create" class="btn btn-outline-primary my-2 my-sm-0 justify-content-end" role="button">Create Tournament</a>
+                            <a href="../tournaments/create" class="btn btn-outline-light" role="button">Create Tournament</a>
                         </li>
 
                         <li class="nav-item dropdown">

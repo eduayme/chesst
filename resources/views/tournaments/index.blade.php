@@ -4,8 +4,7 @@
 
 @section('content')
 
-        @if(session()->get('success'))
-
+        @if( session()->get('success') )
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ session()->get('success') }}
@@ -14,10 +13,16 @@
         @endif
 
         @if( count($tournaments) == 0 )
-            <h3 class="card-title">No tournaments to display</h3>
+            <div class="card text-center">
+              <div class="card-body">
+                <h1 class="card-title"> No tournaments to display </h1>
+                <p class="card-text"> Maybe you would like to add one? :) </p>
+                <a href="../tournaments/create" class="btn btn-primary" role="button">Create Tournament</a>
+              </div>
+            </div>
 
         @else
-        <table class="table dt-responsive nowrap table-hover" id="tour">
+        <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
 
             <thead class="thead-dark">
                 <tr>
@@ -29,8 +34,9 @@
                     <th scope="col">City</th>
                     <th scope="col">Website</th>
                     <!--
-                    <th colspan="2">Action</th>
+                      <th colspan="2">Action</th>
                     -->
+
                 </tr>
             </thead>
 
@@ -43,19 +49,19 @@
                         <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
                         <td> {{ $tournament->country }} </td>
                         <td> {{ $tournament->city }} </td>
-                        <td> <a href="{{ $tournament->website }}" class="btn btn-sm btn-outline-secondary" target="_blank">
-                                Website </a></td>
-                        <!--
-                        <td> <a href="{{ route('tournaments.edit', $tournament->id) }}" class="btn btn-sm btn-outline-success">
-                                Edit </a></td>
-                        <td>
-                            <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
-                            </form>
+                        <td> <a href="{{ $tournament->website }}"
+                                class="btn btn-sm btn-outline-secondary" target="_blank"> Website </a>
                         </td>
+                        <!--
+                          <td>
+                              <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                              </form>
+                          </td>
                         -->
+
                     </tr>
                 @endforeach
             </tbody>
@@ -73,8 +79,10 @@
 <script>
 
     $(document).ready(function() {
-        $('#tour').DataTable({
+        $('#tourn').DataTable({
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
+            "scrollX": true,
+            "pagingType": "full_numbers"
         });
     });
 
