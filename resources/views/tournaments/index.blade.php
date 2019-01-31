@@ -13,7 +13,7 @@
 
         @endif
 
-        @if( count($tournaments) == 0)
+        @if( count($tournaments) == 0 )
             <h3 class="card-title">No tournaments to display</h3>
 
         @else
@@ -28,16 +28,13 @@
                     <th scope="col">Country</th>
                     <th scope="col">City</th>
                     <th scope="col">Website</th>
-
                     <!--
                     <th colspan="2">Action</th>
                     -->
-
                 </tr>
             </thead>
 
             <tbody>
-
                 @foreach( $tournaments as $tournament )
                     <tr>
                         <td> {{ $tournament->name }} </td>
@@ -48,7 +45,6 @@
                         <td> {{ $tournament->city }} </td>
                         <td> <a href="{{ $tournament->website }}" class="btn btn-sm btn-outline-secondary" target="_blank">
                                 Website </a></td>
-
                         <!--
                         <td> <a href="{{ route('tournaments.edit', $tournament->id) }}" class="btn btn-sm btn-outline-success">
                                 Edit </a></td>
@@ -60,10 +56,8 @@
                             </form>
                         </td>
                         -->
-
                     </tr>
                 @endforeach
-
             </tbody>
 
         </table>
@@ -74,18 +68,14 @@
 
 <!-- JQuery 3.3.1 -->
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-<!-- JQuery for DataTables -->
-<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-<!-- DataTables for Bootstrap 4.1 -->
-<script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-<!-- Sorting date for DataTables -->
-<script src="{{ asset('js/sortingDate.js') }}"></script>
 
 <!-- JS -->
 <script>
+
     $(document).ready(function() {
         $('#tour').DataTable({
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
         });
     });
+
 </script>

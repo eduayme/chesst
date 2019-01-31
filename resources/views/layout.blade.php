@@ -25,10 +25,19 @@
         @include('parts.footer')
     </section>
 
+    <!-- JQuery 3.3.1 -->
+    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+    <!-- JQuery for DataTables -->
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <!-- DataTables for Bootstrap 4.1 -->
+    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Sorting date for DataTables -->
+    <script src="{{ asset('js/sortingDate.js') }}"></script>
     <!-- Bootstrap 4.1 -->
     <script src="{{ asset('js/app.js') }}" type="text/js"></script>
     <!-- Dismiss messages in Bootstrap 4.1 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

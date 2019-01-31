@@ -16,7 +16,7 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li> {{ $error }} </li>
                         @endforeach
                     </ul>
                 </div><br />
@@ -57,11 +57,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="begin"> Begin date: </label>
-                        <input type="date" class="form-control" name="begin"/>
+                        <input type="date" class="form-control" name="begin" id="begin"/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="end"> End date: </label>
-                        <input type="date" class="form-control" name="end"/>
+                        <input type="date" class="form-control" name="end" id="end"/>
                     </div>
                 </div>
                 <div class="form-row">
@@ -89,11 +89,3 @@
     </div>
 
 @endsection
-
-<script>
-    $(document).ready(function() {
-        var today = new Date().toISOString().split('T')[0];
-        document.getElementsByName("begin")[0].setAttribute('min', today);
-    });
-
-</script>

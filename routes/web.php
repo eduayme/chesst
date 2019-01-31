@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('tournaments', 'TournamentController');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('Home');
