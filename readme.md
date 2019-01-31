@@ -1,6 +1,6 @@
 # [chesst.org](https://chesst.org)
 
-ChessT is a project where you can find chess tournaments around the world.
+ChessT is an open-source project where you can find chess tournaments around the world.
 
 
 ## License
