@@ -4,14 +4,18 @@
 
 @section('content')
 
+    <!-- Card -->
     <div class="card">
 
+        <!-- Card Header -->
         <div class="card-header">
             Create Tournament
         </div>
 
+        <!-- Card content -->
         <div class="card-body">
 
+            <!-- Alerts -->
             @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -23,14 +27,18 @@
                 </div><br />
             @endif
 
+            <!-- Form -->
             <form method="post" action="{{ route('tournaments.store') }}"
                   oninput="category.value = standard.value +'min + '+ increment.value +'sec' ">
 
+                <!-- Name -->
                 <div class="form-group">
                     @csrf
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" name="name"/>
                 </div>
+
+                <!-- Time control -->
                 <div class="form-group">
                     <label for="category">Time Control:</label>
                     <div class="form-group">
@@ -55,32 +63,46 @@
                     <input type="hidden" class="form-control" name="category"/>
                 </div>
 
+                <!-- Begin date & End date -->
                 <div class="form-row">
+                    <!-- Begin date -->
                     <div class="form-group col-md-6">
                         <label for="begin"> Begin date: </label>
                         <input type="date" class="form-control" name="begin" id="begin"/>
                     </div>
+                    <!-- End date -->
                     <div class="form-group col-md-6">
                         <label for="end"> End date: </label>
                         <input type="date" class="form-control" name="end" id="end"/>
                     </div>
                 </div>
+
+                <!-- County & City -->
                 <div class="form-row">
+                    <!-- Country -->
                     <div class="form-group col-md-6">
                         <label for="begin">Country:</label>
                         <select class="form-control" name="country">
                             @include('parts.selectCountries')
                         </select>
                     </div>
+                    <!-- City -->
                     <div class="form-group  col-md-6">
                         <label for="begin">City:</label>
                         <input type="text" class="form-control" name="city"/>
                     </div>
                 </div>
+
+                <!-- Website -->
                 <div class="form-group">
                     <label for="website">Website:</label>
                     <input type="url" class="form-control" name="website"/>
                 </div>
+
+                <!-- User_id -->
+                <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
+
+                <!-- Submit button -->
                 <button type="submit" class="btn btn-primary">Create Tournament</button>
 
             </form>

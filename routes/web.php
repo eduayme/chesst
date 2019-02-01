@@ -15,8 +15,16 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::resource('tournaments', 'TournamentController');
+Auth::routes();
 
-Auth::routes(['verify' => true]);
+Route::group( ['middleware' => 'auth'], function() {
+      Route::resource('tournaments', 'TournamentController');
+});
 
-Route::get('/', 'HomeController@index')->name('Home');
+Route::get('/privacy', function () {
+    return view('parts.privacy');
+});
+
+Route::get('/terms', function () {
+    return view('parts.terms');
+});

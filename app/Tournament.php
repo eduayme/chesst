@@ -14,6 +14,7 @@ class Tournament extends Model
         'end',
         'country',
         'city',
-        'website'
+        'website',
+        'user_id'
     ];
 }

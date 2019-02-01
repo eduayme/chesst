@@ -44,7 +44,8 @@ class TournamentController extends Controller
             'end'      => 'required|date',
             'country'  => 'required',
             'city'     => 'required',
-            'website'  => 'required|url'
+            'website'  => 'required|url',
+            'user_id'  => 'required'
         ]);
         $tournament = new Tournament([
             'name'     => $request->get('name'),
@@ -53,7 +54,8 @@ class TournamentController extends Controller
             'end'      => $request->get('end'),
             'country'  => $request->get('country'),
             'city'     => $request->get('city'),
-            'website'  => $request->get('website')
+            'website'  => $request->get('website'),
+            'user_id'  => $request->get('user_id')
         ]);
         $tournament->save();
         return redirect('/tournaments')->with('success', $tournament->name .' has been added');
@@ -82,7 +84,7 @@ class TournamentController extends Controller
         $tournament = Tournament::find($id);
 
         return view('tournaments.edit', compact('tournament'));
-         **/
+         */
     }
 
     /**
@@ -95,13 +97,14 @@ class TournamentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'     =>'required',
+            'name'     => 'required',
             'category' => 'required',
             'begin'    => 'required|date',
             'end'      => 'required|date',
             'country'  => 'required',
             'city'     => 'required',
-            'website'  => 'required|url'
+            'website'  => 'required|url',
+            'user_id'  => 'required'
         ]);
 
         $tournament = Tournament::find($id);
@@ -112,6 +115,7 @@ class TournamentController extends Controller
         $tournament->country  = $request->get('country');
         $tournament->city     = $request->get('city');
         $tournament->website  = $request->get('website');
+        $tournament->user_id  = $request->get('user_id');
         $tournament->save();
 
         return redirect('/tournaments')->with('success', $tournament->name .' has been updated');
@@ -130,4 +134,5 @@ class TournamentController extends Controller
 
         return redirect('/tournaments')->with('success', $tournament->name .' has been deleted Successfully');
     }
+
 }

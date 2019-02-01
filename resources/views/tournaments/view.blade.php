@@ -1,3 +1,3 @@
 @extends('layout')
 
-@section('title', 'Edit tournament')
+@section('title', {{ $tournament->name }} )

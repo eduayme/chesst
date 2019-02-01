@@ -4,14 +4,15 @@
 
 @section('content')
 
+        <!-- Alerts -->
         @if( session()->get('success') )
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 {{ session()->get('success') }}
             </div><br/>
-
         @endif
 
+        <!-- If NO tournaments -->
         @if( count($tournaments) == 0 )
             <div class="card text-center">
               <div class="card-body">
@@ -21,9 +22,11 @@
               </div>
             </div>
 
+        <!-- If tournaments -->
         @else
         <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
 
+            <!-- Table header -->
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Name</th>
@@ -34,12 +37,12 @@
                     <th scope="col">City</th>
                     <th scope="col">Website</th>
                     <!--
-                      <th colspan="2">Action</th>
+                    <th colspan="2">Action</th>
                     -->
-
                 </tr>
             </thead>
 
+            <!-- Table content -->
             <tbody>
                 @foreach( $tournaments as $tournament )
                     <tr>
@@ -61,16 +64,15 @@
                               </form>
                           </td>
                         -->
-
                     </tr>
                 @endforeach
             </tbody>
 
         </table>
-
         @endif
 
 @endsection
+
 
 <!-- JQuery 3.3.1 -->
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
