@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Route::resource('tournaments', 'TournamentController');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('Home');
