@@ -17,7 +17,7 @@
             <div class="card text-center">
               <div class="card-body">
                 <h1 class="card-title"> No tournaments to display </h1>
-                <p class="card-text"> Maybe you would like to add one? :) </p>
+                <p class="card-text"> Maybe you would like to create one? :) </p>
                 <a href="../tournaments/create" class="btn btn-primary" role="button">Create Tournament</a>
               </div>
             </div>

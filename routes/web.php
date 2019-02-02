@@ -28,3 +28,5 @@ Route::get('/privacy', function () {
 Route::get('/terms', function () {
     return view('parts.terms');
 });
+
+Route::get('/mytournaments', 'MyTournaments@index' );
