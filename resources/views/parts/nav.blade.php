@@ -38,7 +38,7 @@
               <ul class="navbar-nav ml-auto">
 
                 <!-- Create tournament button -->
-                <li class="nav-item" style="margin-right: 50px">
+                <li class="nav-item" style="margin-right: 20px">
                     <a href="../tournaments/create" class="btn btn-outline-light" role="button">Create Tournament</a>
                 </li>
 
@@ -81,12 +81,18 @@
 
                   <!-- Login -->
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a class="btn btn-outline-light" role="button"
+                      style="margin-right: 20px"
+                      href="{{ route('login') }}">
+                      {{ __('Login') }} </a>
                   </li>
 
                   <!-- Register -->
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                      <a class="btn btn-outline-light" role="button"
+                      style="margin-right: 20px"
+                      href="{{ route('register') }}">
+                      {{ __('Register') }} </a>
                   </li>
 
               </ul>
