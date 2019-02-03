@@ -19,14 +19,15 @@
             <form method="post" action="{{ route('tournaments.update', $tournament->id) }}">
                 @method('PATCH')
                 @csrf
-                <div class="form-group">
-                    @csrf
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" name="name" value={{ $tournament->name }}/>
-                </div>
-                <div class="form-group">
-                    <label for="category">Category:</label>
-                    <input type="text" class="form-control" name="category" value={{ $tournament->category }}/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" value={{ $tournament->name }}/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="category">Category:</label>
+                        <input type="text" class="form-control" name="category" value={{ $tournament->category }}/>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">

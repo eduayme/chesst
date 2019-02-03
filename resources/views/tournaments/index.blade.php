@@ -46,24 +46,23 @@
             <tbody>
                 @foreach( $tournaments as $tournament )
                     <tr>
-                        <td> {{ $tournament->name }} </td>
-                        <td> {{ $tournament->category }} </td>
-                        <td> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
-                        <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
-                        <td> {{ $tournament->country }} </td>
-                        <td> {{ $tournament->city }} </td>
-                        <td> <a href="{{ $tournament->website }}"
-                                class="btn btn-sm btn-outline-secondary" target="_blank"> Website </a>
+                        <!-- Name -->
+                        <td class="align-middle"> {{ $tournament->name }} </td>
+                        <!-- Category -->
+                        <td class="align-middle"> {{ $tournament->category }} </td>
+                        <!-- Begin date -->
+                        <td class="align-middle"> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
+                        <!-- End date -->
+                        <td class="align-middle"> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
+                        <!-- Country -->
+                        <td class="align-middle"> {{ $tournament->country }} </td>
+                        <!-- City -->
+                        <td class="align-middle"> {{ $tournament->city }} </td>
+                        <!-- Website -->
+                        <td class="align-middle"> <a href="{{ $tournament->website }}"
+                                class="btn btn-sm btn-outline-secondary"
+                                target="_blank"> Website </a>
                         </td>
-                        <!--
-                          <td>
-                              <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
-                              </form>
-                          </td>
-                        -->
                     </tr>
                 @endforeach
             </tbody>

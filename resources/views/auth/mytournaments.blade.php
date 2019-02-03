@@ -42,9 +42,6 @@
                         <th scope="col"> City </th>
                         <th scope="col"> Website </th>
                         <th scope="col"> Action </th>
-                        <!--
-                        <th colspan="2"> Action </th>
-                        -->
                     </tr>
                 </thead>
 
@@ -67,7 +64,8 @@
                             <td> {{ $tournament->city }} </td>
                             <!-- Website -->
                             <td> <a href="{{ $tournament->website }}"
-                                    class="btn btn-sm btn-outline-secondary" target="_blank"> Website </a>
+                                    class="btn btn-sm btn-outline-secondary"
+                                    target="_blank"> Website </a>
                             </td>
                             <!-- Delete action -->
                             <td>
