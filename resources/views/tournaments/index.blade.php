@@ -47,7 +47,11 @@
                 @foreach( $tournaments as $tournament )
                     <tr>
                         <!-- Name -->
-                        <td class="align-middle"> {{ $tournament->name }} </td>
+                        <td class="align-middle"> {{ $tournament->name }}
+                          @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
+                            <span class="badge badge-dark"> Started </span>
+                          @endif
+                        </td>
                         <!-- Category -->
                         <td class="align-middle"> {{ $tournament->category }} </td>
                         <!-- Begin date -->

@@ -51,7 +51,15 @@
                     @foreach( $tournaments as $tournament )
                         <tr>
                             <!-- Name -->
-                            <td> {{ $tournament->name }} </td>
+                            <td> {{ $tournament->name }}
+                              <!-- Badge Finished  -->
+                              @if( \Carbon\Carbon::parse( $tournament->end )->lt( now() ) )
+                                <span class="badge badge-warning"> Finished </span>
+                              <!-- Badge Started  -->
+                              @elseif( \Carbon\Carbon::parse( $tournament->begin )->lt( now() ) )
+                                <span class="badge badge-dark"> Started </span>
+                              @endif
+                            </td>
                             <!-- Category -->
                             <td> {{ $tournament->category }} </td>
                             <!-- Begin date -->

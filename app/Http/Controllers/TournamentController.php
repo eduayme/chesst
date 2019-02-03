@@ -2,6 +2,7 @@
 
 namespace ChessT\Http\Controllers;
 
+use Carbon\Carbon;
 use ChessT\Tournament;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,9 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        $tournaments = Tournament::all();
+        $tournaments = Tournament::all()->where( 'end', '>=', Carbon::today() );
 
-        return view('tournaments.index', compact('tournaments'));
+        return view( 'tournaments.index', compact('tournaments') );
     }
 
     /**
@@ -26,7 +27,7 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        return view('tournaments.create');
+        return view( 'tournaments.create' );
     }
 
     /**
