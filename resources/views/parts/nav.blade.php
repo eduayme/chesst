@@ -21,12 +21,12 @@
 
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../"> Home <span class="sr-only">(current)</span></a>
                 </li>
 
                 <!-- Tournaments list -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../tournaments">Tournaments</a>
+                    <a class="nav-link" href="../tournaments"> Tournaments </a>
                 </li>
 
             </ul>
@@ -82,7 +82,7 @@
                   <!-- Login -->
                   <li class="nav-item">
                       <a class="btn btn-outline-light" role="button"
-                      style="margin-right: 20px"
+                      style="margin-left: 20px"
                       href="{{ route('login') }}">
                       {{ __('Login') }} </a>
                   </li>
@@ -90,7 +90,7 @@
                   <!-- Register -->
                   <li class="nav-item">
                       <a class="btn btn-outline-light" role="button"
-                      style="margin-right: 20px"
+                      style="margin-left: 20px"
                       href="{{ route('register') }}">
                       {{ __('Register') }} </a>
                   </li>
