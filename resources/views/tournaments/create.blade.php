@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Standard time" name="standard">
+                                <input type="number" class="form-control" placeholder="Initial" name="standard">
                             </div>
                             <div class="col-2">
                                 <h3> min </h3>
