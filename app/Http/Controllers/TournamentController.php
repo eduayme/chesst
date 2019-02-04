@@ -2,6 +2,7 @@
 
 namespace ChessT\Http\Controllers;
 
+use Auth;
 use Carbon\Carbon;
 use ChessT\Tournament;
 use Illuminate\Http\Request;
@@ -27,7 +28,12 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        return view( 'tournaments.create' );
+        if( Auth::check() ) {
+          return view( 'tournaments.create' );
+        }
+        else {
+          return redirect()->intended( '../login' );
+        }
     }
 
     /**

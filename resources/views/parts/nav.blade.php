@@ -16,9 +16,6 @@
         <!-- Content -->
         <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 50px">
 
-            <!-- User -->
-            @auth
-
             <!-- Left content -->
             <ul class="navbar-nav">
 
@@ -33,6 +30,9 @@
                 </li>
 
             </ul>
+
+            <!-- User -->
+            @auth
 
             <!-- Right content -->
               <ul class="navbar-nav ml-auto">
