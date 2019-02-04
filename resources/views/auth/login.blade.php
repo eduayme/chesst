@@ -68,7 +68,16 @@
                                 @endif
                             </div>
                         </div>
+
                     </form>
+
+                    <div class="d-flex justify-content-center" style="margin-top: 20px">
+                          <a class="btn btn-link" href="../register">
+                            You don't have an account yet? </br>
+                            <strong> Register for free </strong>
+                          </a>
+                    </div>
+
                 </div>
             </div>
         </div>

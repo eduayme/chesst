@@ -36,9 +36,6 @@
                     <th scope="col">Country</th>
                     <th scope="col">City</th>
                     <th scope="col">Website</th>
-                    <!--
-                    <th colspan="2">Action</th>
-                    -->
                 </tr>
             </thead>
 
@@ -63,9 +60,11 @@
                         <!-- City -->
                         <td class="align-middle"> {{ $tournament->city }} </td>
                         <!-- Website -->
-                        <td class="align-middle"> <a href="{{ $tournament->website }}"
-                                class="btn btn-sm btn-outline-secondary"
-                                target="_blank"> Website </a>
+                        <td class="align-middle">
+                          <a href="{{ $tournament->website }}"
+                             class="btn btn-sm btn-outline-secondary"
+                             target="_blank">
+                             Website </a>
                         </td>
                     </tr>
                 @endforeach

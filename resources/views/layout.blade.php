@@ -16,7 +16,7 @@
     </section>
 
     <section>
-        <div class="container" style="margin-top: 30px; margin-bottom: 30px">
+        <div class="container" style="margin-top: 20px; margin-bottom: 20px">
             @yield('content')
         </div>
     </section>

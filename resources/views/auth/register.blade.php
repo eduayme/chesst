@@ -70,7 +70,15 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
+
+                    <div class="d-flex justify-content-center" style="margin-top: 20px">
+                        <a class="btn btn-link" href="../login">
+                          You already have an account?
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
