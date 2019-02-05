@@ -40,7 +40,6 @@
                         <th scope="col"> End date </th>
                         <th scope="col"> Country </th>
                         <th scope="col"> City </th>
-                        <th scope="col"> Website </th>
                         <th scope="col"> Action </th>
                     </tr>
                 </thead>
@@ -51,7 +50,11 @@
                     @foreach( $tournaments as $tournament )
                         <tr>
                             <!-- Name -->
-                            <td> {{ $tournament->name }}
+                            <td>
+                              <a href="{{ $tournament->website }}"
+                                 target="_blank" style="color: black">
+                                 {{ $tournament->name }}
+                              </a>
                               <!-- Badge Finished  -->
                               @if( \Carbon\Carbon::parse( $tournament->end )->lt( now() ) )
                                 <span class="badge badge-warning"> Finished </span>
@@ -70,11 +73,6 @@
                             <td> {{ $tournament->country }} </td>
                             <!-- City -->
                             <td> {{ $tournament->city }} </td>
-                            <!-- Website -->
-                            <td> <a href="{{ $tournament->website }}"
-                                    class="btn btn-sm btn-outline-secondary"
-                                    target="_blank"> Website </a>
-                            </td>
                             <!-- Delete action -->
                             <td>
                                   <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">

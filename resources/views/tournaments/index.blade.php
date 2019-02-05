@@ -35,7 +35,6 @@
                     <th scope="col">End date</th>
                     <th scope="col">Country</th>
                     <th scope="col">City</th>
-                    <th scope="col">Website</th>
                 </tr>
             </thead>
 
@@ -44,28 +43,26 @@
                 @foreach( $tournaments as $tournament )
                     <tr>
                         <!-- Name -->
-                        <td class="align-middle"> {{ $tournament->name }}
-                          @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
-                            <span class="badge badge-dark"> Started </span>
-                          @endif
+                        <td>
+                            <a href="{{ $tournament->website }}"
+                               target="_blank" style="color: black">
+                               {{ $tournament->name }}
+                            </a>
+                            <!-- Badge Started  -->
+                            @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
+                              <span class="badge badge-dark"> Started </span>
+                            @endif
                         </td>
                         <!-- Category -->
-                        <td class="align-middle"> {{ $tournament->category }} </td>
+                        <td> {{ $tournament->category }} </td>
                         <!-- Begin date -->
-                        <td class="align-middle"> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
+                        <td> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
                         <!-- End date -->
-                        <td class="align-middle"> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
+                        <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
                         <!-- Country -->
-                        <td class="align-middle"> {{ $tournament->country }} </td>
+                        <td> {{ $tournament->country }} </td>
                         <!-- City -->
-                        <td class="align-middle"> {{ $tournament->city }} </td>
-                        <!-- Website -->
-                        <td class="align-middle">
-                          <a href="{{ $tournament->website }}"
-                             class="btn btn-sm btn-outline-secondary"
-                             target="_blank">
-                             Website </a>
-                        </td>
+                        <td> {{ $tournament->city }} </td>
                     </tr>
                 @endforeach
             </tbody>

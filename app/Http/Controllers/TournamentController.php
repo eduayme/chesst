@@ -65,7 +65,8 @@ class TournamentController extends Controller
             'user_id'  => $request->get('user_id')
         ]);
         $tournament->save();
-        return redirect('/tournaments')->with('success', $tournament->name .' has been added');
+        return redirect( '/tournaments' )
+        ->with( 'success', $tournament->name .' has been added' );
     }
 
     /**
@@ -87,11 +88,9 @@ class TournamentController extends Controller
      */
     public function edit($id)
     {
-        /**
         $tournament = Tournament::find($id);
 
-        return view('tournaments.edit', compact('tournament'));
-         */
+        return view( 'tournaments.edit', compact('tournament') );
     }
 
     /**
@@ -125,7 +124,8 @@ class TournamentController extends Controller
         $tournament->user_id  = $request->get('user_id');
         $tournament->save();
 
-        return redirect('/tournaments')->with('success', $tournament->name .' has been updated');
+        return redirect( '/tournaments' )
+        ->with( 'success', $tournament->name .' has been updated' );
     }
 
     /**
@@ -139,7 +139,8 @@ class TournamentController extends Controller
         $tournament = Tournament::find($id);
         $tournament->delete();
 
-        return redirect('/tournaments')->with('success', $tournament->name .' has been deleted Successfully');
+        return redirect( '/mytournaments' )
+        ->with( 'success', $tournament->name .' has been deleted Successfully' );
     }
 
 }
