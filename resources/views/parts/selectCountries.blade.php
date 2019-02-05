@@ -48,7 +48,7 @@
 <option value="Colombia">Colombia</option>
 <option value="Comoros">Comoros</option>
 <option value="Congo">Congo</option>
-<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+<option value="Congo, D.R. of The">Congo, D.R. of The</option>
 <option value="Cook Islands">Cook Islands</option>
 <option value="Costa Rica">Costa Rica</option>
 <option value="Cote D'ivoire">Cote D'ivoire</option>
@@ -113,11 +113,11 @@
 <option value="Kazakhstan">Kazakhstan</option>
 <option value="Kenya">Kenya</option>
 <option value="Kiribati">Kiribati</option>
-<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+<option value="Korea, D.P.R. of">Korea, D.P.R. of</option>
 <option value="Korea, Republic of">Korea, Republic of</option>
 <option value="Kuwait">Kuwait</option>
 <option value="Kyrgyzstan">Kyrgyzstan</option>
-<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+<option value="Lao People's D.R.">Lao People's D.R.</option>
 <option value="Latvia">Latvia</option>
 <option value="Lebanon">Lebanon</option>
 <option value="Lesotho">Lesotho</option>
@@ -127,7 +127,7 @@
 <option value="Lithuania">Lithuania</option>
 <option value="Luxembourg">Luxembourg</option>
 <option value="Macao">Macao</option>
-<option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+<option value="Macedonia, F.Y.R. of">Macedonia, F.Y.R. of</option>
 <option value="Madagascar">Madagascar</option>
 <option value="Malawi">Malawi</option>
 <option value="Malaysia">Malaysia</option>
