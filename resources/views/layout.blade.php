@@ -8,6 +8,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
     <!-- DataTables for Bootstrap 4.1 -->
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap daterangepicker -->
+    <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -37,6 +39,9 @@
     <script src="{{ asset('js/app.js') }}" type="text/js"></script>
     <!-- Dismiss messages in Bootstrap 4.1 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap daterangepicker -->
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script src="{{ asset('js/daterangepicker.min.js') }}"></script>
 
 </body>
 

@@ -68,12 +68,12 @@
                     <!-- Begin date -->
                     <div class="form-group col-md-6">
                         <label for="begin"> Begin date: </label>
-                        <input type="date" class="form-control" name="begin" id="begin"/>
+                        <input type="text" class="form-control" name="begin"/>
                     </div>
                     <!-- End date -->
                     <div class="form-group col-md-6">
                         <label for="end"> End date: </label>
-                        <input type="date" class="form-control" name="end" id="end"/>
+                        <input type="text" class="form-control" name="end"/>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                     <input type="url" class="form-control" name="website"/>
                 </div>
 
-                <!-- User_id -->
+                <!-- User_id HIDDEN -->
                 <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
 
                 <!-- Submit button -->
@@ -112,3 +112,52 @@
     </div>
 
 @endsection
+
+<!-- JQuery 3.3.1 -->
+<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+<!-- Bootstrap daterangepicker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<!-- JS -->
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        // today date
+        var today = new Date();
+
+        // begin date input
+        $('input[name="begin"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            autoUpdateInput: true,
+            autoApply: true,
+            drops: 'up',
+            minDate: today,
+            locale: {
+              format: 'DD-MMM-Y'
+            }
+        });
+
+        // end date input
+        $('input[name="end"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            autoUpdateInput: true,
+            autoApply: true,
+            drops: 'up',
+            minDate: today,
+            locale: {
+              format: 'DD-MMM-Y'
+            }
+        });
+
+        // on change begin input changing end input
+        $('input[name="begin"]').on('apply.daterangepicker', function(ev, picker) {
+            minDate2 = picker.startDate;
+            $('input[name="end"').data('daterangepicker').minDate = minDate2;
+            $('input[name="end"').val( minDate2.format('DD-MMM-Y') );
+        });
+    });
+
+</script>
