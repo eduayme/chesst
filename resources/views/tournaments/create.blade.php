@@ -115,9 +115,6 @@
 
 <!-- JQuery 3.3.1 -->
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-<!-- Bootstrap daterangepicker -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <!-- JS -->
 <script type="text/javascript">
@@ -135,7 +132,7 @@
             drops: 'up',
             minDate: today,
             locale: {
-              format: 'DD-MMM-Y'
+              format: 'YYYY/MM/DD'
             }
         });
 
@@ -148,7 +145,7 @@
             drops: 'up',
             minDate: today,
             locale: {
-              format: 'DD-MMM-Y'
+              format: 'YYYY/MM/DD'
             }
         });
 
@@ -156,7 +153,7 @@
         $('input[name="begin"]').on('apply.daterangepicker', function(ev, picker) {
             minDate2 = picker.startDate;
             $('input[name="end"').data('daterangepicker').minDate = minDate2;
-            $('input[name="end"').val( minDate2.format('DD-MMM-Y') );
+            $('input[name="end"').val( minDate2.format('YYYY/MM/DD') );
         });
     });
 
