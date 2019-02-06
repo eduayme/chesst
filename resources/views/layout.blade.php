@@ -10,6 +10,8 @@
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Bootstrap daterangepicker -->
     <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{{ asset('img/logoChessT_64x64.png') }}}">
 </head>
 
 <body>
