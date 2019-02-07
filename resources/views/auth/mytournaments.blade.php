@@ -34,13 +34,13 @@
                 <!-- Table header -->
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col"> Action </th>
                         <th scope="col"> Name </th>
                         <th scope="col"> Category </th>
                         <th scope="col"> Begin date </th>
                         <th scope="col"> End date </th>
                         <th scope="col"> Country </th>
                         <th scope="col"> City </th>
-                        <th scope="col"> Action </th>
                     </tr>
                 </thead>
 
@@ -49,6 +49,15 @@
 
                     @foreach( $tournaments as $tournament )
                         <tr>
+                            <!-- Action -->
+                            <td>
+                                  <!-- Delete -->
+                                  <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                                  </form>
+                            </td>
                             <!-- Name -->
                             <td>
                               <a href="{{ $tournament->website }}"
@@ -73,15 +82,6 @@
                             <td> {{ $tournament->country }} </td>
                             <!-- City -->
                             <td> {{ $tournament->city }} </td>
-                            <!-- Delete action -->
-                            <td>
-                                  <!-- Delete -->
-                                  <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
-                                  </form>
-                            </td>
                         </tr>
                     @endforeach
 
