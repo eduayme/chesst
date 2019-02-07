@@ -24,6 +24,10 @@
 
         <!-- If tournaments -->
         @else
+
+
+
+        <!-- Tournaments table -->
         <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
 
             <!-- Table header -->

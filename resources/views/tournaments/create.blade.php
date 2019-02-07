@@ -132,7 +132,8 @@
             drops: 'up',
             minDate: today,
             locale: {
-              format: 'YYYY/MM/DD'
+              format: 'YYYY/MM/DD',
+              firstDay: 1
             }
         });
 
@@ -145,7 +146,8 @@
             drops: 'up',
             minDate: today,
             locale: {
-              format: 'YYYY/MM/DD'
+              format: 'YYYY/MM/DD',
+              firstDay: 1
             }
         });
 
