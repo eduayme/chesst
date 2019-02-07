@@ -25,7 +25,34 @@
         <!-- If tournaments -->
         @else
 
+        <!-- Filters -->
+        <div class="text-center" style="margin-bottom: 20px">
 
+            <!-- Categories filter -->
+            <select id="categories">
+                <option value="">All</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Sales Assistant">Sales Assistant</option>
+            </select>
+
+            <!-- Dates filter -->
+
+
+            <!-- Country filter -->
+            <select id="countries">
+                <option value="">All</option>
+                <option value="London">London</option>
+                <option value="San Francisco">San Francisco</option>
+            </select>
+
+            <!-- Cities filter -->
+            <select id="cities">
+                <option value="">All</option>
+                <option value="London">London</option>
+                <option value="San Francisco">San Francisco</option>
+            </select>
+
+        </div>
 
         <!-- Tournaments table -->
         <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
