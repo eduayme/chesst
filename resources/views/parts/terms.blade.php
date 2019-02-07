@@ -16,7 +16,7 @@
       <div class="card-body">
 
         <h3> 1. Terms </h3>
-        <p> By accessing the website at <a href="http://chesst.org">http://chesst.org</a>,
+        <p> By accessing the website at <a href="https://chesst.org">chesst.org</a>,
             you are agreeing to be bound by these terms of service, all applicable laws and
             regulations, and agree that you are responsible for compliance with any applicable
             local laws. If you do not agree with any of these terms, you are prohibited from
