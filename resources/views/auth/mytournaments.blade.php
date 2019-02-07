@@ -75,6 +75,7 @@
                             <td> {{ $tournament->city }} </td>
                             <!-- Delete action -->
                             <td>
+                                  <!-- Delete -->
                                   <form action="{{ route('tournaments.destroy', $tournament->id) }}" method="post">
                                       @csrf
                                       @method('DELETE')

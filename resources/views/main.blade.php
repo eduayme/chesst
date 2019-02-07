@@ -17,11 +17,17 @@
         </div><br/>
     @endif
 
-    <div class="text-center">
+    <div class="text-center" style="margin: 100px">
         <h1 class="card-title"> Welcome to ChessT </h1>
-        <p class="card-text"> The best place to find all chess tournaments </p>
-        <a href="../tournaments" class="btn btn-outline-primary" role="button">Find Tournaments</a>
-        <a href="../tournaments/create" class="btn btn-outline-secondary" role="button">Create Tournament</a>
+        <p class="card-text"> The best place to find chess tournaments </p>
+        <a href="../tournaments" style="margin: 5px"
+           class="btn btn-outline-primary btn-lg" role="button">
+           Find Tournaments
+        </a>
+        <a href="../tournaments/create" style="margin: 5px"
+           class="btn btn-outline-secondary btn-lg" role="button">
+           Create Tournament
+        </a>
     </div>
 
 @endsection
