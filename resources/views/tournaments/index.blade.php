@@ -25,6 +25,47 @@
         <!-- If tournaments -->
         @else
 
+        <!-- Filters -->
+        <div class="row text-center" style="margin-bottom: 20px">
+
+            <!-- Categories filter -->
+            <div class="col-sm">
+                <select class="form-control" id="categories" style="margin: 5px 0">
+                    <option value=""> All categories </option>
+                    @foreach( $categories as $category )
+                        <option value="{{ $category['category'] }}"> {{ $category['category'] }} </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Dates filter -->
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="datefilter"
+                      value="" placeholder="All dates" style="margin: 5px 0"/>
+            </div>
+
+            <!-- Country filter -->
+            <div class="col-sm">
+                <select class="form-control" id="countries" style="margin: 5px 0">
+                    <option value=""> All countries </option>
+                    @foreach( $countries as $country )
+                        <option value="{{ $country['country'] }}"> {{ $country['country'] }} </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Cities filter -->
+            <div class="col-sm">
+                <select class="form-control" id="cities" style="margin: 5px 0">
+                    <option value=""> All cities </option>
+                    @foreach( $cities as $city )
+                        <option value="{{ $city['city'] }}"> {{ $city['city'] }} </option>
+                    @endforeach
+                </select>
+            </div>
+
+        </div>
+
         <!-- Tournaments table -->
         <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
 
@@ -82,11 +123,67 @@
 <script>
 
     $(document).ready(function() {
-        $('#tourn').DataTable({
-            "order": [ [ 3, "asc" ], [ 4, "asc" ] ],
+        // datetable
+         var table = $('#tourn').DataTable({
+            "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
             "scrollX": true,
-            "pagingType": "full_numbers"
+            "pagingType": "full_numbers",
         });
+
+        // categories filter
+        $('#categories').on('change', function () {
+            table.columns(1).search( this.value ).draw();
+        } );
+
+        // dates range filter
+        $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var min = $('input[name="datefilter"]').data('daterangepicker').startDate._d;
+            var max = $('input[name="datefilter"]').data('daterangepicker').endDate._d;
+            var startDate = new Date(data[2]);
+            var endDate = new Date(data[3]);
+
+            if( min == null && max == null ) { return true; }
+            if( $('input[name="datefilter"]').val() == '' ) { return true; }
+            if( min == null && endDate <= max ) { return true; }
+            if( max == null && startDate >= min ) { return true; }
+            if( endDate <= max && startDate >= min ) { return true; }
+            return false;
+        }
+        );
+
+        var filter_minDay = new Date();
+        $('input[name="datefilter"]').daterangepicker({
+            autoUpdateInput: false,
+            minDate: filter_minDay,
+            opens: "center",
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
+
+        // apply button dates range filter
+        $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val( 'From ' + picker.startDate.format('DD-MMM-Y') + ' to ' + picker.endDate.format('DD-MMM-Y') );
+             table.draw();
+        });
+
+        // cancel button dates range filter
+        $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val( '' );
+            table.draw();
+        });
+
+        // countries filter
+        $('#countries').on('change', function () {
+            table.columns(4).search( this.value ).draw();
+        } );
+
+        // cities filter
+        $('#cities').on('change', function () {
+            table.columns(5).search( this.value ).draw();
+        } );
+
     });
 
 </script>

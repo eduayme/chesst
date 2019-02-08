@@ -18,7 +18,18 @@ class TournamentController extends Controller
     {
         $tournaments = Tournament::all()->where( 'end', '>=', Carbon::today() );
 
-        return view( 'tournaments.index', compact('tournaments') );
+        $categories = Tournament::select( 'category' )->groupBy( 'category' )->get();
+
+        $countries = Tournament::select( 'country' )->groupBy( 'country' )->get();
+
+        $cities = Tournament::select( 'city' )->groupBy( 'city' )->get();
+
+        $minDay = Tournament::min( 'begin' );
+
+        $maxDay = Tournament::max( 'end' );
+
+        return view( 'tournaments.index',
+        compact( 'tournaments', 'categories', 'countries', 'cities', 'minDay', 'maxDay' ) );
     }
 
     /**

@@ -17,7 +17,7 @@
 
             <li class="list-inline-item"> | </li>
 
-            <li class="list-inline-item"> Version 1.0 </li>
+            <li class="list-inline-item"> Version 1.1 </li>
 
             <li class="list-inline-item"> | </li>
 
