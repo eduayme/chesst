@@ -155,6 +155,7 @@
         $('input[name="begin"]').on('apply.daterangepicker', function(ev, picker) {
             minDate2 = picker.startDate;
             $('input[name="end"').data('daterangepicker').minDate = minDate2;
+            $('input[name="end"').data('daterangepicker').startDate = minDate2;
             $('input[name="end"').val( minDate2.format('YYYY/MM/DD') );
         });
     });
