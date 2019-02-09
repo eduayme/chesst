@@ -126,7 +126,6 @@
         // begin date input
         $('input[name="begin"]').daterangepicker({
             singleDatePicker: true,
-            showDropdowns: true,
             autoUpdateInput: true,
             autoApply: true,
             drops: 'up',
@@ -140,7 +139,6 @@
         // end date input
         $('input[name="end"]').daterangepicker({
             singleDatePicker: true,
-            showDropdowns: true,
             autoUpdateInput: true,
             autoApply: true,
             drops: 'up',
