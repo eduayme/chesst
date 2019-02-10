@@ -16,11 +16,11 @@
         <div class="card-body">
 
             <!-- Alerts -->
-            @if ($errors->any())
+            @if( $errors->any() )
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <ul>
-                        @foreach ($errors->all() as $error)
+                        @foreach( $errors->all() as $error )
                             <li> {{ $error }} </li>
                         @endforeach
                     </ul>
@@ -34,13 +34,13 @@
                 <!-- Name -->
                 <div class="form-group">
                     @csrf
-                    <label for="name">Name:</label>
+                    <label for="name"> Name: </label>
                     <input type="text" class="form-control" name="name"/>
                 </div>
 
                 <!-- Time control -->
                 <div class="form-group">
-                    <label for="category">Time Control:</label>
+                    <label for="category"> Time Control: </label>
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-3">
@@ -81,21 +81,21 @@
                 <div class="form-row">
                     <!-- Country -->
                     <div class="form-group col-md-6">
-                        <label for="begin">Country:</label>
+                        <label for="begin"> Country: </label>
                         <select class="form-control" name="country">
                             @include('parts.selectCountries')
                         </select>
                     </div>
                     <!-- City -->
                     <div class="form-group  col-md-6">
-                        <label for="begin">City:</label>
+                        <label for="begin"> City: </label>
                         <input type="text" class="form-control" name="city"/>
                     </div>
                 </div>
 
                 <!-- Website -->
                 <div class="form-group">
-                    <label for="website">Website:</label>
+                    <label for="website"> Website: </label>
                     <input type="url" class="form-control" name="website"/>
                 </div>
 
@@ -103,7 +103,7 @@
                 <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary">Create Tournament</button>
+                <button type="submit" class="btn btn-primary"> Create Tournament </button>
 
             </form>
 

@@ -32,9 +32,9 @@
             <div class="col-sm">
                 <select class="form-control" id="categories" style="margin: 5px 0">
                     <option value=""> All categories </option>
-                    @foreach( $categories as $category )
-                        <option value="{{ $category['category'] }}"> {{ $category['category'] }} </option>
-                    @endforeach
+                    <option value="Blitz"> Blitz </option>
+                    <option value="Rapid"> Rapid </option>
+                    <option value="Standard"> Standard </option>
                 </select>
             </div>
 
@@ -73,11 +73,12 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Time Control</th>
                     <th scope="col">Begin date</th>
                     <th scope="col">End date</th>
                     <th scope="col">Country</th>
                     <th scope="col">City</th>
+                    <th scope="col">Type Time Control</th>
                 </tr>
             </thead>
 
@@ -106,6 +107,15 @@
                         <td> {{ $tournament->country }} </td>
                         <!-- City -->
                         <td> {{ $tournament->city }} </td>
+                        <!-- Type control time HIDDEN -->
+                        @php
+                          $cat = $tournament->category;
+                          $minuts = substr( $cat, 0, strpos( $cat, "min" ) );
+                          if( $minuts <= 5 ) $type = "Blitz";
+                          elseif( $minuts <= 60 ) $type = "Rapid";
+                          else $type = "Standard";
+                        @endphp
+                        <td> {{ $type }} </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -128,28 +138,34 @@
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
             "scrollX": true,
             "pagingType": "full_numbers",
+            "columnDefs": [
+                {
+                    "targets": [ 6 ],
+                    "visible": false
+                }
+            ]
         });
 
         // categories filter
         $('#categories').on('change', function () {
-            table.columns(1).search( this.value ).draw();
+            table.columns(6).search( this.value ).draw();
         } );
 
         // dates range filter
         $.fn.dataTable.ext.search.push(
-        function (settings, data, dataIndex) {
-            var min = $('input[name="datefilter"]').data('daterangepicker').startDate._d;
-            var max = $('input[name="datefilter"]').data('daterangepicker').endDate._d;
-            var startDate = new Date(data[2]);
-            var endDate = new Date(data[3]);
+            function (settings, data, dataIndex) {
+                var min = $('input[name="datefilter"]').data('daterangepicker').startDate._d;
+                var max = $('input[name="datefilter"]').data('daterangepicker').endDate._d;
+                var startDate = new Date(data[2]);
+                var endDate = new Date(data[3]);
 
-            if( min == null && max == null ) { return true; }
-            if( $('input[name="datefilter"]').val() == '' ) { return true; }
-            if( min == null && endDate <= max ) { return true; }
-            if( max == null && startDate >= min ) { return true; }
-            if( endDate <= max && startDate >= min ) { return true; }
-            return false;
-        }
+                if( min == null && max == null ) { return true; }
+                if( $('input[name="datefilter"]').val() == '' ) { return true; }
+                if( min == null && endDate <= max ) { return true; }
+                if( max == null && startDate >= min ) { return true; }
+                if( endDate <= max && startDate >= min ) { return true; }
+                return false;
+            }
         );
 
         var filter_minDay = new Date();
