@@ -68,12 +68,12 @@
                     <!-- Begin date -->
                     <div class="form-group col-md-6">
                         <label for="begin"> Begin date: </label>
-                        <input type="text" class="form-control" name="begin"/>
+                        <input type="text" class="form-control" name="begin" placeholder="YYYY/MM/DD" value=""/>
                     </div>
                     <!-- End date -->
                     <div class="form-group col-md-6">
                         <label for="end"> End date: </label>
-                        <input type="text" class="form-control" name="end"/>
+                        <input type="text" class="form-control" name="end" placeholder="YYYY/MM/DD" value=""/>
                     </div>
                 </div>
 
@@ -135,6 +135,7 @@
               firstDay: 1
             }
         });
+        $('input[name="begin"').val( '' );
 
         // end date input
         $('input[name="end"]').daterangepicker({
@@ -148,6 +149,7 @@
               firstDay: 1
             }
         });
+        $('input[name="end"').val( '' );
 
         // on change begin input changing end input
         $('input[name="begin"]').on('apply.daterangepicker', function(ev, picker) {
