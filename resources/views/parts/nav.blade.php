@@ -39,7 +39,10 @@
 
                 <!-- Create tournament button -->
                 <li class="nav-item" style="margin-right: 20px">
-                    <a href="../tournaments/create" class="btn btn-outline-light" role="button">Create Tournament</a>
+                    <a href="../tournaments/create" class="btn btn-outline-light" role="button">
+                      <span class="octicon octicon-cloud-upload"></span>
+                      Add Tournament
+                    </a>
                 </li>
 
                 <!-- User name dropdown -->
@@ -85,6 +88,7 @@
                       <a class="btn btn-outline-light" role="button"
                       style="margin-left: 20px"
                       href="{{ route('login') }}">
+                      <span class="octicon octicon-sign-in"></span>
                       {{ __('Login') }} </a>
                   </li>
 
@@ -93,6 +97,8 @@
                       <a class="btn btn-outline-light" role="button"
                       style="margin-left: 20px"
                       href="{{ route('register') }}">
+                      <span class="octicon octicon-plus"></span>
+                      <span class="octicon octicon-person"></span>
                       {{ __('Register') }} </a>
                   </li>
 

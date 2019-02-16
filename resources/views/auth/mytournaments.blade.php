@@ -62,6 +62,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-outline-danger" type="submit">
+                                          <span class="octicon octicon-trashcan"></span>
                                           Delete
                                         </button>
                                     </form>

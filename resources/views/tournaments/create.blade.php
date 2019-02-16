@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Create Tournament')
+@section('title', 'Add Tournament')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 
         <!-- Card Header -->
         <div class="card-header">
-            Create Tournament
+            Add Tournament
         </div>
 
         <!-- Card content -->
@@ -105,7 +105,7 @@
                 <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary"> Create Tournament </button>
+                <button type="submit" class="btn btn-primary"> Add Tournament </button>
 
             </form>
 

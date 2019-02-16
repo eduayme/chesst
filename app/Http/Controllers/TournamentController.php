@@ -151,7 +151,7 @@ class TournamentController extends Controller
         $tournament->delete();
 
         return redirect( '/mytournaments' )
-        ->with( 'success', $tournament->name .' has been deleted Successfully' );
+        ->with( 'success', $tournament->name .' has been deleted successfully' );
     }
 
 }
