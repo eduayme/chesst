@@ -3,18 +3,25 @@
 @section('title', 'Email')
 
 @section('content')
-<div class="container">
+
+<!-- Alerts -->
+@if (session('status'))
+    <div class="alert alert-success" role="alert" style="margin-bottom: 15px">
+      <div class="container text-center">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ session('status') }}
+      </div>
+    </div>
+@endif
+
+
+<div class="container" style="margin-top: 15px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header" style="text-align: center"> {{ __('Reset Password') }} </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf

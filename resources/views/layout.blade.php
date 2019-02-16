@@ -22,9 +22,7 @@
     </section>
 
     <section>
-        <div class="container" style="margin-top: 20px; margin-bottom: 20px">
-            @yield('content')
-        </div>
+        @yield('content')
     </section>
 
     <section>

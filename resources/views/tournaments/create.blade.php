@@ -4,6 +4,8 @@
 
 @section('content')
 
+<div class="container" style="margin-top: 15px">
+
     <!-- Card -->
     <div class="card">
 
@@ -110,6 +112,8 @@
         </div>
 
     </div>
+
+</div>
 
 @endsection
 

@@ -6,32 +6,42 @@
 
     <!-- Alerts -->
     @if( session()->get('success') )
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ session()->get('success') }}
-        </div><br/>
+        <div class="alert alert-success" role="alert">
+            <div class="container text-center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ session()->get('success') }}
+            </div>
+        </div>
+
     @elseif( session()->get('error') )
         <div class="alert alert-error alert-dismissible fade show" role="alert">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ session()->get('error') }}
-        </div><br/>
+            <div class="container text-center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  {{ session()->get('error') }}
+            </div>
+        </div>
     @endif
 
     <!-- Header -->
-    <div class="text-center" style="margin: 100px">
-        <h1 class="card-title"> Welcome to ChessT </h1>
-        <p class="card-text"> The best place to find chess tournaments </p>
-        <a href="../tournaments" style="margin: 5px"
-           class="btn btn-outline-primary btn-lg" role="button">
-           Find Tournaments
-        </a>
-        <a href="../tournaments/create" style="margin: 5px"
-           class="btn btn-outline-secondary btn-lg" role="button">
-           Create Tournament
-        </a>
-    </div>
+    <section class="jumbotron text-center" style="background-color: white">
+        <div class="container">
+            <h1 class="jumbotron-heading"> Welcome to ChessT </h1>
+            <p class="lead text-muted"> The best place to find chess tournaments </p>
+            <p>
+              <a href="../tournaments" style="margin: 5px"
+                 class="btn btn-primary my-2 btn-lg" role="button">
+                 Find Tournaments
+              </a>
+              <a href="../tournaments/create" style="margin: 5px"
+                 class="btn btn-secondary my-2 btn-lg" role="button">
+                 Create Tournament
+              </a>
+            </p>
+        </div>
+    </section>
 
     <!-- Advantages -->
+    <div class="container">
     <div class="container" style="margin: 50px 0">
       <div class="row">
         <div class="col-sm-4 text-center">
@@ -48,5 +58,6 @@
         </div>
       </div>
     </div>
+  </div>
 
 @endsection

@@ -6,121 +6,128 @@
 
         <!-- Alerts -->
         @if( session()->get('success') )
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                {{ session()->get('success') }}
-            </div><br/>
+            <div class="alert alert-success" role="alert">
+              <div class="container text-center" style="margin-bottom: 0">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  {{ session()->get('success') }}
+              </div>
+            </div>
         @endif
 
         <!-- If NO tournaments -->
         @if( count($tournaments) == 0 )
-            <div class="card text-center">
-              <div class="card-body">
-                <h1 class="card-title"> No tournaments to display </h1>
-                <p class="card-text"> Maybe you would like to create one? :) </p>
-                <a href="../tournaments/create" class="btn btn-primary" role="button">Create Tournament</a>
+            <div class="container" style="margin-top: 15px">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h1 class="card-title"> No tournaments to display </h1>
+                  <p class="card-text"> Maybe you would like to create one? :) </p>
+                  <a href="../tournaments/create" class="btn btn-primary" role="button">Create Tournament</a>
+                </div>
               </div>
             </div>
 
         <!-- If tournaments -->
         @else
 
-        <!-- Filters -->
-        <div class="row text-center" style="margin-bottom: 20px">
+        <div class="container" style="margin-top: 15px">
 
-            <!-- Categories filter -->
-            <div class="col-sm">
-                <select class="form-control" id="categories" style="margin: 5px 0">
-                    <option value=""> All categories </option>
-                    <option value="Blitz"> Blitz </option>
-                    <option value="Rapid"> Rapid </option>
-                    <option value="Standard"> Standard </option>
-                </select>
-            </div>
+          <!-- Filters -->
+          <div class="row text-center" style="margin-bottom: 20px">
 
-            <!-- Dates filter -->
-            <div class="col-sm-5">
-                <input class="form-control" type="text" name="datefilter"
-                      value="" placeholder="All dates" style="margin: 5px 0"/>
-            </div>
+              <!-- Categories filter -->
+              <div class="col-sm">
+                  <select class="form-control" id="categories" style="margin: 5px 0">
+                      <option value=""> All categories </option>
+                      <option value="Blitz"> Blitz </option>
+                      <option value="Rapid"> Rapid </option>
+                      <option value="Standard"> Standard </option>
+                  </select>
+              </div>
 
-            <!-- Country filter -->
-            <div class="col-sm">
-                <select class="form-control" id="countries" style="margin: 5px 0">
-                    <option value=""> All countries </option>
-                    @foreach( $countries as $country )
-                        <option value="{{ $country['country'] }}"> {{ $country['country'] }} </option>
-                    @endforeach
-                </select>
-            </div>
+              <!-- Dates filter -->
+              <div class="col-sm-5">
+                  <input class="form-control" type="text" name="datefilter"
+                        value="" placeholder="All dates" style="margin: 5px 0"/>
+              </div>
 
-            <!-- Cities filter -->
-            <div class="col-sm">
-                <select class="form-control" id="cities" style="margin: 5px 0">
-                    <option value=""> All cities </option>
-                    @foreach( $cities as $city )
-                        <option value="{{ $city['city'] }}"> {{ $city['city'] }} </option>
-                    @endforeach
-                </select>
-            </div>
+              <!-- Country filter -->
+              <div class="col-sm">
+                  <select class="form-control" id="countries" style="margin: 5px 0">
+                      <option value=""> All countries </option>
+                      @foreach( $countries as $country )
+                          <option value="{{ $country['country'] }}"> {{ $country['country'] }} </option>
+                      @endforeach
+                  </select>
+              </div>
+
+              <!-- Cities filter -->
+              <div class="col-sm">
+                  <select class="form-control" id="cities" style="margin: 5px 0">
+                      <option value=""> All cities </option>
+                      @foreach( $cities as $city )
+                          <option value="{{ $city['city'] }}"> {{ $city['city'] }} </option>
+                      @endforeach
+                  </select>
+              </div>
+
+          </div>
+
+          <!-- Tournaments table -->
+          <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
+
+              <!-- Table header -->
+              <thead class="thead-dark">
+                  <tr>
+                      <th scope="col"> Name </th>
+                      <th scope="col"> Time Control </th>
+                      <th scope="col"> Begin date </th>
+                      <th scope="col"> End date </th>
+                      <th scope="col"> Country </th>
+                      <th scope="col"> City </th>
+                      <th scope="col"> Type Time Control </th>
+                  </tr>
+              </thead>
+
+              <!-- Table content -->
+              <tbody>
+                  @foreach( $tournaments as $tournament )
+                      <tr>
+                          <!-- Name -->
+                          <td>
+                              <a href="{{ $tournament->website }}" target="_blank">
+                                 {{ $tournament->name }}
+                              </a>
+                              <!-- Badge Started  -->
+                              @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
+                                <span class="badge badge-dark"> Started </span>
+                              @endif
+                          </td>
+                          <!-- Category -->
+                          <td> {{ $tournament->category }} </td>
+                          <!-- Begin date -->
+                          <td> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
+                          <!-- End date -->
+                          <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
+                          <!-- Country -->
+                          <td> {{ $tournament->country }} </td>
+                          <!-- City -->
+                          <td> {{ $tournament->city }} </td>
+                          <!-- Type control time HIDDEN -->
+                          @php
+                            $cat = $tournament->category;
+                            $minuts = substr( $cat, 0, strpos( $cat, "min" ) );
+                            if( $minuts <= 5 ) $type = "Blitz";
+                            elseif( $minuts <= 60 ) $type = "Rapid";
+                            else $type = "Standard";
+                          @endphp
+                          <td> {{ $type }} </td>
+                      </tr>
+                  @endforeach
+              </tbody>
+
+          </table>
 
         </div>
-
-        <!-- Tournaments table -->
-        <table class="table dt-responsive nowrap table-hover" id="tourn" style="width: 100%">
-
-            <!-- Table header -->
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Time Control</th>
-                    <th scope="col">Begin date</th>
-                    <th scope="col">End date</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Type Time Control</th>
-                </tr>
-            </thead>
-
-            <!-- Table content -->
-            <tbody>
-                @foreach( $tournaments as $tournament )
-                    <tr>
-                        <!-- Name -->
-                        <td>
-                            <a href="{{ $tournament->website }}"
-                               target="_blank" style="color: black">
-                               {{ $tournament->name }}
-                            </a>
-                            <!-- Badge Started  -->
-                            @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
-                              <span class="badge badge-dark"> Started </span>
-                            @endif
-                        </td>
-                        <!-- Category -->
-                        <td> {{ $tournament->category }} </td>
-                        <!-- Begin date -->
-                        <td> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
-                        <!-- End date -->
-                        <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
-                        <!-- Country -->
-                        <td> {{ $tournament->country }} </td>
-                        <!-- City -->
-                        <td> {{ $tournament->city }} </td>
-                        <!-- Type control time HIDDEN -->
-                        @php
-                          $cat = $tournament->category;
-                          $minuts = substr( $cat, 0, strpos( $cat, "min" ) );
-                          if( $minuts <= 5 ) $type = "Blitz";
-                          elseif( $minuts <= 60 ) $type = "Rapid";
-                          else $type = "Standard";
-                        @endphp
-                        <td> {{ $type }} </td>
-                    </tr>
-                @endforeach
-            </tbody>
-
-        </table>
         @endif
 
 @endsection
