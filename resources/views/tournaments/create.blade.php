@@ -10,7 +10,7 @@
     <div class="card">
 
         <!-- Card Header -->
-        <div class="card-header">
+        <div class="card-header text-center">
             Add Tournament
         </div>
 
@@ -33,11 +33,19 @@
             <form method="post" action="{{ route('tournaments.store') }}"
                   oninput="category.value = standard.value +'min + '+ increment.value +'sec' ">
 
-                <!-- Name -->
-                <div class="form-group">
+                <!-- Name && Website -->
+                <div class="form-row">
                     @csrf
-                    <label for="name"> Name: </label>
-                    <input type="text" class="form-control" name="name"/>
+                    <!-- Name -->
+                    <div class="form-group col-md-6">
+                      <label for="name"> Name: </label>
+                      <input type="text" class="form-control" name="name"/>
+                    </div>
+                    <!-- Website -->
+                    <div class="form-group col-md-6">
+                      <label for="website"> Website: </label>
+                      <input type="url" class="form-control" name="website"/>
+                    </div>
                 </div>
 
                 <!-- Time control -->
@@ -95,17 +103,13 @@
                     </div>
                 </div>
 
-                <!-- Website -->
-                <div class="form-group">
-                    <label for="website"> Website: </label>
-                    <input type="url" class="form-control" name="website"/>
-                </div>
-
                 <!-- User_id HIDDEN -->
                 <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary"> Add Tournament </button>
+                <div class="text-center" style="margin-top: 15px">
+                    <button type="submit" class="btn btn-primary"> Add Tournament </button>
+                </div>
 
             </form>
 
