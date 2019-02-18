@@ -100,7 +100,7 @@
 <option value="Iceland">Iceland</option>
 <option value="India">India</option>
 <option value="Indonesia">Indonesia</option>
-<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+<option value="Iran">Iran</option>
 <option value="Iraq">Iraq</option>
 <option value="Ireland">Ireland</option>
 <option value="Isle of Man">Isle of Man</option>
@@ -140,7 +140,7 @@
 <option value="Mauritius">Mauritius</option>
 <option value="Mayotte">Mayotte</option>
 <option value="Mexico">Mexico</option>
-<option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+<option value="Micronesia">Micronesia</option>
 <option value="Moldova, Republic of">Moldova, Republic of</option>
 <option value="Monaco">Monaco</option>
 <option value="Mongolia">Mongolia</option>
@@ -210,9 +210,9 @@
 <option value="Sweden">Sweden</option>
 <option value="Switzerland">Switzerland</option>
 <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-<option value="Taiwan, Province of China">Taiwan, Province of China</option>
+<option value="Taiwan">Taiwan</option>
 <option value="Tajikistan">Tajikistan</option>
-<option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+<option value="Tanzania">Tanzania</option>
 <option value="Thailand">Thailand</option>
 <option value="Timor-leste">Timor-leste</option>
 <option value="Togo">Togo</option>
