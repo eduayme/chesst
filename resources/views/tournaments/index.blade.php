@@ -181,7 +181,8 @@
             minDate: filter_minDay,
             opens: "center",
             locale: {
-                cancelLabel: 'Clear'
+                cancelLabel: 'Clear',
+                firstDay: 1
             }
         });
 
