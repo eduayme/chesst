@@ -88,7 +88,9 @@ class TournamentController extends Controller
      */
     public function show($id)
     {
-        //
+      $tournament = Tournament::find($id);
+
+      return view( 'tournaments.view', compact('tournament') );
     }
 
     /**
