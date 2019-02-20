@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('lang/{lang}', function($lang) {
+    \Session::put('lang', $lang);
+    return \Redirect::back();
+})->middleware('web')->name('change_lang');
+
 Auth::routes();
 
 Route::resource('tournaments', 'TournamentController');

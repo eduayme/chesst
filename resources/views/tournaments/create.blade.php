@@ -11,7 +11,7 @@
 
         <!-- Card Header -->
         <div class="card-header text-center">
-            Add Tournament
+            {{ __('main.add tournament') }}
         </div>
 
         <!-- Card content -->
@@ -38,26 +38,26 @@
                     @csrf
                     <!-- Name -->
                     <div class="form-group col-md-6">
-                      <label for="name"> Name: </label>
+                      <label for="name"> {{ __('tournaments.name') }}: </label>
                       <input type="text" class="form-control" name="name"/>
                     </div>
                     <!-- Website -->
                     <div class="form-group col-md-6">
-                      <label for="website"> Website: </label>
+                      <label for="website"> {{ __('tournaments.website') }}: </label>
                       <input type="url" class="form-control" name="website"/>
                     </div>
                 </div>
 
                 <!-- Time control -->
                 <div class="form-group">
-                    <label for="category"> Time Control: </label>
+                    <label for="category"> {{ __('tournaments.time control') }}: </label>
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-3">
                                 <input type="number" class="form-control" placeholder="Initial" name="standard">
                             </div>
                             <div class="col-2">
-                                <h3> min </h3>
+                                <h3> {{ __('tournaments.min') }} </h3>
                             </div>
                             <div class="col-2">
                                 <h2 style="text-align: center"> + </h2>
@@ -66,7 +66,7 @@
                                 <input type="number" class="form-control" placeholder="Increment" name="increment">
                             </div>
                             <div class="col-2">
-                                <h3> sec </h3>
+                                <h3> {{ __('tournaments.sec') }} </h3>
                             </div>
                         </div>
                     </div>
@@ -77,12 +77,12 @@
                 <div class="form-row">
                     <!-- Begin date -->
                     <div class="form-group col-md-6">
-                        <label for="begin"> Begin date: </label>
+                        <label for="begin"> {{ __('tournaments.begin date') }}: </label>
                         <input type="text" class="form-control" name="begin" placeholder="YYYY/MM/DD" value=""/>
                     </div>
                     <!-- End date -->
                     <div class="form-group col-md-6">
-                        <label for="end"> End date: </label>
+                        <label for="end"> {{ __('tournaments.end date') }}: </label>
                         <input type="text" class="form-control" name="end" placeholder="YYYY/MM/DD" value=""/>
                     </div>
                 </div>
@@ -91,14 +91,14 @@
                 <div class="form-row">
                     <!-- Country -->
                     <div class="form-group col-md-6">
-                        <label for="begin"> Country: </label>
+                        <label for="begin"> {{ __('tournaments.country') }}: </label>
                         <select class="form-control" name="country">
                             @include('parts.selectCountries')
                         </select>
                     </div>
                     <!-- City -->
                     <div class="form-group  col-md-6">
-                        <label for="begin"> City: </label>
+                        <label for="begin"> {{ __('tournaments.city') }}: </label>
                         <input type="text" class="form-control" name="city"/>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
 
                 <!-- Submit button -->
                 <div class="text-center" style="margin-top: 15px">
-                    <button type="submit" class="btn btn-primary"> Add Tournament </button>
+                    <button type="submit" class="btn btn-primary"> {{ __('main.add tournament') }} </button>
                 </div>
 
             </form>

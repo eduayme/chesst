@@ -21,27 +21,39 @@
 
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../"> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../"> {{ __('main.home') }} <span class="sr-only">(current)</span></a>
                 </li>
 
                 <!-- Tournaments list -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../tournaments"> Tournaments </a>
+                    <a class="nav-link" href="../tournaments"> {{ __('main.tournaments') }} </a>
                 </li>
 
             </ul>
 
-            <!-- User -->
-            @auth
-
             <!-- Right content -->
               <ul class="navbar-nav ml-auto">
 
+                <!-- Languages -->
+                <div class="dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <span class="octicon octicon-globe" style="font-size: 15px;"></span>
+                        {{ __('main.language') }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('change_lang', ['lang' => 'en']) }}"> {{ __('main.english') }} </a>
+                        <a class="dropdown-item" href="{{ route('change_lang', ['lang' => 'es']) }}"> {{ __('main.spanish') }} </a>
+                    </div>
+                </div>
+
+                <!-- User -->
+                @auth
+
                 <!-- Create tournament button -->
-                <li class="nav-item" style="margin-right: 20px">
+                <li class="nav-item" style="margin-right: 20px; margin-left: 20px">
                     <a href="../tournaments/create" class="btn btn-outline-light" role="button">
                       <span class="octicon octicon-cloud-upload"></span>
-                      Add Tournament
+                      {{ __('main.add tournament') }}
                     </a>
                 </li>
 
@@ -56,14 +68,14 @@
                     <!-- Logout -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        <a class="dropdown-item" href="../mytournaments"> My tournaments </a>
+                        <a class="dropdown-item" href="../mytournaments"> {{ __('tournaments.my tournaments') }} </a>
 
                         <div class="dropdown-divider"></div>
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                            <span class="octicon octicon-sign-out" style="font-size: 15px;"></span>
-                            {{ __('Logout') }}
+                            {{ __('main.logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -73,15 +85,10 @@
 
                 </li>
 
-              </ul>
-
             @endauth
 
             <!-- Not an user -->
             @guest
-
-              <!-- Right content -->
-              <ul class="navbar-nav ml-auto">
 
                   <!-- Login -->
                   <li class="nav-item">
@@ -89,7 +96,7 @@
                       style="margin-left: 20px"
                       href="{{ route('login') }}">
                       <span class="octicon octicon-sign-in"></span>
-                      {{ __('Login') }} </a>
+                      {{ __('login.login') }} </a>
                   </li>
 
                   <!-- Register -->
@@ -99,7 +106,7 @@
                       href="{{ route('register') }}">
                       <span class="octicon octicon-plus"></span>
                       <span class="octicon octicon-person"></span>
-                      {{ __('Register') }} </a>
+                      {{ __('register.register') }} </a>
                   </li>
 
               </ul>

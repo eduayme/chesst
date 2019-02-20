@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Home')
+@section('title', __('main.home'))
 
 @section('content')
 
@@ -25,18 +25,18 @@
     <!-- Header -->
     <section class="jumbotron text-center" style="background-color: white">
         <div class="container">
-            <h1 class="jumbotron-heading"> Welcome to ChessT </h1>
-            <p class="lead text-muted"> The best place to find chess tournaments </p>
+            <h1 class="jumbotron-heading"> {{ __('main.welcome') }} </h1>
+            <p class="lead text-muted"> {{ __('main.intro') }} </p>
             <p>
               <a href="../tournaments" style="margin: 5px"
                  class="btn btn-primary my-2 btn-lg" role="button">
                  <span class="octicon octicon-search"></span>
-                 Find Tournaments
+                 {{ __('main.find tournaments') }}
               </a>
               <a href="../tournaments/create" style="margin: 5px"
                  class="btn btn-secondary my-2 btn-lg" role="button">
                  <span class="octicon octicon-cloud-upload"></span>
-                 Add Tournament
+                 {{ __('main.add tournament') }}
               </a>
             </p>
         </div>

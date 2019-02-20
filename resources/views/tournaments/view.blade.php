@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'View' )
+@section('title', $tournament->name )
 
 @section('content')
 
@@ -27,26 +27,30 @@
 
         <div class="row">
           <div class="col-sm" style="padding: 15px">
-              <b> Begin Date: </b> </br>
+              <span class="octicon octicon-calendar"></span>
+              <b> {{ __('tournaments.begin date') }}: </b> </br>
               {{ date('d-M-Y', strtotime($tournament->begin)) }}
           </div>
           <div class="col-sm" style="padding: 15px">
-              <b> End Date: </b> </br>
+              <span class="octicon octicon-calendar"></span>
+              <b> {{ __('tournaments.end date') }}: </b> </br>
               {{ date('d-M-Y', strtotime($tournament->end)) }}
           </div>
           <div class="col-sm" style="padding: 15px">
-            <b> Location: </b> </br>
-            {{ $tournament->city }}, {{ $tournament->country }}
+              <span class="octicon octicon-location"></span>
+              <b> {{ __('tournaments.location') }}: </b> </br>
+              {{ $tournament->city }}, {{ $tournament->country }}
           </div>
           <div class="col-sm" style="padding: 15px">
-              <b> Time Control: </b> </br>
+              <span class="octicon octicon-clock"></span>
+              <b> {{ __('tournaments.time control') }}: </b> </br>
               {{ $tournament->category }}
           </div>
           <div class="col-sm" style="padding: 15px">
             <a href="{{ $tournament->website }}" class="btn btn-outline-secondary"
                role="button" target="_blank">
               <span class="octicon octicon-link"></span>
-              Website
+              {{ __('tournaments.website') }}
             </a>
           </div>
         </div>

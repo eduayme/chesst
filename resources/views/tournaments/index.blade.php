@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Tournaments')
+@section('title', __('main.tournaments'))
 
 @section('content')
 
@@ -19,9 +19,11 @@
             <div class="container" style="margin-top: 15px">
               <div class="card text-center">
                 <div class="card-body">
-                  <h1 class="card-title"> No tournaments to display </h1>
-                  <p class="card-text"> Maybe you would like to create one? :) </p>
-                  <a href="../tournaments/create" class="btn btn-primary" role="button">Create Tournament</a>
+                  <h1 class="card-title"> {{ __('tournaments.no tournament') }} </h1>
+                  <p class="card-text"> {{ __('tournaments.add one') }} </p>
+                  <a href="../tournaments/create" class="btn btn-primary" role="button">
+                    {{ __('main.add tournament') }}
+                  </a>
                 </div>
               </div>
             </div>
@@ -37,23 +39,23 @@
               <!-- Categories filter -->
               <div class="col-sm">
                   <select class="form-control" id="categories" style="margin: 5px 0">
-                      <option value=""> All categories </option>
-                      <option value="Blitz"> Blitz </option>
-                      <option value="Rapid"> Rapid </option>
-                      <option value="Standard"> Standard </option>
+                      <option value=""> {{ __('tournaments.all controls') }} </option>
+                      <option value="Blitz"> {{ __('tournaments.blitz') }} </option>
+                      <option value="Rapid"> {{ __('tournaments.rapid') }} </option>
+                      <option value="Standard"> {{ __('tournaments.standard') }} </option>
                   </select>
               </div>
 
               <!-- Dates filter -->
               <div class="col-sm-5">
                   <input class="form-control" type="text" name="datefilter"
-                        value="" placeholder="All dates" style="margin: 5px 0"/>
+                        value="" placeholder="{{ __('tournaments.all dates') }}" style="margin: 5px 0"/>
               </div>
 
               <!-- Country filter -->
               <div class="col-sm">
                   <select class="form-control" id="countries" style="margin: 5px 0">
-                      <option value=""> All countries </option>
+                      <option value=""> {{ __('tournaments.all countries') }} </option>
                       @foreach( $countries as $country )
                           <option value="{{ $country['country'] }}"> {{ $country['country'] }} </option>
                       @endforeach
@@ -63,7 +65,7 @@
               <!-- Cities filter -->
               <div class="col-sm">
                   <select class="form-control" id="cities" style="margin: 5px 0">
-                      <option value=""> All cities </option>
+                      <option value=""> {{ __('tournaments.all cities') }} </option>
                       @foreach( $cities as $city )
                           <option value="{{ $city['city'] }}"> {{ $city['city'] }} </option>
                       @endforeach
@@ -78,13 +80,13 @@
               <!-- Table header -->
               <thead class="thead-dark">
                   <tr>
-                      <th scope="col"> Name </th>
-                      <th scope="col"> Time Control </th>
-                      <th scope="col"> Begin date </th>
-                      <th scope="col"> End date </th>
-                      <th scope="col"> Country </th>
-                      <th scope="col"> City </th>
-                      <th scope="col"> Type Time Control </th>
+                      <th scope="col"> {{ __('tournaments.name') }} </th>
+                      <th scope="col"> {{ __('tournaments.time control') }} </th>
+                      <th scope="col"> {{ __('tournaments.begin date') }} </th>
+                      <th scope="col"> {{ __('tournaments.end date') }} </th>
+                      <th scope="col"> {{ __('tournaments.country') }} </th>
+                      <th scope="col"> {{ __('tournaments.city') }} </th>
+                      <th scope="col"> {{ __('tournaments.type time control') }} </th>
                   </tr>
               </thead>
 
@@ -99,7 +101,7 @@
                               </a>
                               <!-- Badge Started  -->
                               @if( \Carbon\Carbon::parse($tournament->begin)->lt(now()) )
-                                <span class="badge badge-dark"> Started </span>
+                                <span class="badge badge-dark"> {{ __('tournaments.started') }} </span>
                               @endif
                           </td>
                           <!-- Category -->

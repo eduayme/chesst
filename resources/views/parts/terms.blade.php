@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Terms of Service')
+@section('title', __('main.terms of service'))
 
 @section('content')
 
@@ -11,7 +11,7 @@
 
       <!-- Card Header -->
       <div class="card-header">
-          <h2> Terms of Service </h2>
+          <h2> {{ __('main.terms of service') }} </h2>
       </div>
 
       <!-- Card content -->

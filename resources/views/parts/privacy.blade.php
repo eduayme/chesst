@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Privacy Policy')
+@section('title', __('main.privacy policy'))
 
 @section('content')
 
@@ -11,7 +11,7 @@
 
         <!-- Card Header -->
         <div class="card-header">
-            <h2> Privacy Policy </h2>
+            <h2> {{ __('main.privacy policy') }} </h2>
         </div>
 
         <!-- Card content -->

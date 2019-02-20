@@ -1,0 +1,28 @@
+<?php
+return [
+    'my tournaments' => 'My tournaments',
+    'no tournament'  => 'No tournaments to display',
+    'add one' => 'Maybe you would like to add some...',
+    'all controls' => 'All controls',
+    'blitz' => 'Blitz',
+    'rapid' => 'Rapid',
+    'standard' => 'Standard',
+    'all dates' => 'All dates',
+    'all countries' => 'All countries',
+    'all cities' => 'All cities',
+    'action' => 'Action',
+    'name' => 'Name',
+    'time control' => 'Time control',
+    'begin date' => 'Begin date',
+    'end date' => 'End date',
+    'country' => 'Country',
+    'city' => 'City',
+    'website' => 'Website',
+    'type time control' => 'Type time control',
+    'delete' => 'Delete',
+    'started' => 'Started',
+    'finished' => 'Finished',
+    'min' => 'minutes',
+    'sec' => 'seconds',
+    'location' => 'Location'
+];

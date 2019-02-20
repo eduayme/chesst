@@ -9,13 +9,13 @@
 
             <li class="list-inline-item"> | </li>
 
-            <li class="list-inline-item"> Version 1.1 </li>
+            <li class="list-inline-item"> {{ __('main.version') }} 1.1 </li>
 
             <li class="list-inline-item"> | </li>
 
             <li class="list-inline-item">
               <a href="https://github.com/eduayme/chesst">
-                Free & Open Source
+                {{ __('main.free && open source') }}
               </a>
             </li>
 
@@ -23,7 +23,7 @@
 
             <li class="list-inline-item">
               <a href="../privacy">
-                Privacy Policy
+                {{ __('main.privacy policy') }}
               </a>
             </li>
 
@@ -31,7 +31,7 @@
 
             <li class="list-inline-item">
               <a href="../terms">
-                Terms of Service
+                {{ __('main.terms of service') }}
               </a>
             </li>
 
