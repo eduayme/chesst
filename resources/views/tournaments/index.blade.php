@@ -155,6 +155,9 @@
             ]
         });
 
+        // locale language
+        var locale = '{{ config('app.locale') }}';
+
         // categories filter
         $('#categories').on('change', function () {
             table.columns(6).search( this.value ).draw();

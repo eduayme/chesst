@@ -77,7 +77,7 @@ class TournamentController extends Controller
         ]);
         $tournament->save();
         return redirect( '/tournaments' )
-        ->with( 'success', $tournament->name .' has been added' );
+        ->with( 'success', $tournament->name . __('message.added') );
     }
 
     /**
@@ -138,7 +138,7 @@ class TournamentController extends Controller
         $tournament->save();
 
         return redirect( '/tournaments' )
-        ->with( 'success', $tournament->name .' has been updated' );
+        ->with( 'success', $tournament->name . __('message.updated') );
     }
 
     /**
@@ -153,7 +153,7 @@ class TournamentController extends Controller
         $tournament->delete();
 
         return redirect( '/mytournaments' )
-        ->with( 'success', $tournament->name .' has been deleted successfully' );
+        ->with( 'success', $tournament->name . __('message.deleted') );
     }
 
 }
