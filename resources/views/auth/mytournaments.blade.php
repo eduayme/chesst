@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', __('mytournaments.my tournaments'))
+@section('title', __('tournaments.my tournaments'))
 
 @section('content')
 

@@ -2,7 +2,7 @@
 <footer class="page-footer">
 
     <!-- Copyright -->
-    <div class="fixed-bottom footer-copyright text-center py-3">
+    <div class="footer-copyright text-center py-3">
         <ul class="list-inline">
 
             <li class="list-inline-item"> © <?php echo date("Y"); ?> chesst.org </li>
