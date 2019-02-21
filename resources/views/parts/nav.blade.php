@@ -21,12 +21,18 @@
 
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../"> {{ __('main.home') }} <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../" style="margin-right: 15px">
+                      <span class="octicon octicon-home"></span>
+                      {{ __('main.home') }} <span class="sr-only">(current)</span>
+                    </a>
                 </li>
 
                 <!-- Tournaments list -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../tournaments"> {{ __('main.tournaments') }} </a>
+                    <a class="nav-link" href="../tournaments"  style="margin-right: 15px">
+                      <span class="octicon octicon-database"></span>
+                      {{ __('main.tournaments') }}
+                    </a>
                 </li>
 
             </ul>
@@ -104,7 +110,6 @@
                       <a class="btn btn-outline-light" role="button"
                       style="margin-left: 20px"
                       href="{{ route('register') }}">
-                      <span class="octicon octicon-plus"></span>
                       <span class="octicon octicon-person"></span>
                       {{ __('register.register') }} </a>
                   </li>

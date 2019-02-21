@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Initial" name="standard">
+                                <input type="number" class="form-control" name="standard">
                             </div>
                             <div class="col-2">
                                 <h3> {{ __('tournaments.min') }} </h3>
@@ -63,7 +63,7 @@
                                 <h2 style="text-align: center"> + </h2>
                             </div>
                             <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Increment" name="increment">
+                                <input type="number" class="form-control" name="increment">
                             </div>
                             <div class="col-2">
                                 <h3> {{ __('tournaments.sec') }} </h3>
@@ -78,12 +78,12 @@
                     <!-- Begin date -->
                     <div class="form-group col-md-6">
                         <label for="begin"> {{ __('tournaments.begin date') }}: </label>
-                        <input type="text" class="form-control" name="begin" placeholder="YYYY/MM/DD" value=""/>
+                        <input type="text" class="form-control" name="begin" value=""/>
                     </div>
                     <!-- End date -->
                     <div class="form-group col-md-6">
                         <label for="end"> {{ __('tournaments.end date') }}: </label>
-                        <input type="text" class="form-control" name="end" placeholder="YYYY/MM/DD" value=""/>
+                        <input type="text" class="form-control" name="end" value=""/>
                     </div>
                 </div>
 
@@ -108,7 +108,10 @@
 
                 <!-- Submit button -->
                 <div class="text-center" style="margin-top: 15px">
-                    <button type="submit" class="btn btn-primary"> {{ __('main.add tournament') }} </button>
+                    <button type="submit" class="btn btn-primary">
+                      <span class="octicon octicon-cloud-upload"></span>
+                      {{ __('main.add tournament') }}
+                    </button>
                 </div>
 
             </form>

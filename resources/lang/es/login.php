@@ -1,6 +1,6 @@
 <?php
 return [
-    'login' => 'Login',
+    'login' => 'Iniciar sessión',
     'email' => 'Email',
     'password' => 'Contraseña',
     'remember' => 'Recuérdame',
