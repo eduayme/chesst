@@ -24,12 +24,8 @@ class TournamentController extends Controller
 
         $cities = Tournament::select( 'city' )->groupBy( 'city' )->get();
 
-        $minDay = Tournament::min( 'begin' );
-
-        $maxDay = Tournament::max( 'end' );
-
         return view( 'tournaments.index',
-        compact( 'tournaments', 'categories', 'countries', 'cities', 'minDay', 'maxDay' ) );
+        compact( 'tournaments', 'categories', 'countries', 'cities' ) );
     }
 
     /**
