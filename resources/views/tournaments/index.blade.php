@@ -181,15 +181,54 @@
         );
 
         var filter_minDay = new Date();
-        $('input[name="datefilter"]').daterangepicker({
-            autoUpdateInput: false,
-            minDate: filter_minDay,
-            opens: "center",
-            locale: {
-                cancelLabel: 'Clear',
-                firstDay: 1
-            }
-        });
+
+        if( locale == 'en' ){
+          $('input[name="datefilter"]').daterangepicker({
+              autoUpdateInput: false,
+              minDate: filter_minDay,
+              opens: "center",
+              locale: {
+                  cancelLabel: 'Clear',
+                  firstDay: 1
+              }
+          });
+        }
+        else if( locale == 'es' ) {
+          $('input[name="datefilter"]').daterangepicker({
+              autoUpdateInput: false,
+              minDate: filter_minDay,
+              opens: "center",
+              locale: {
+                  cancelLabel: 'Borrar',
+                  firstDay: 1,
+                  applyLabel: 'Aceptar',
+                  cancelLabel: 'Cancelar',
+                  daysOfWeek: [
+                      'Do',
+                      'Lu',
+                      'Ma',
+                      'Mi',
+                      'Ju',
+                      'Vi',
+                      'Sa'
+                  ],
+                  monthNames: [
+                      'Ene',
+                      'Feb',
+                      'Mar',
+                      'Abr',
+                      'May',
+                      'Jun',
+                      'Jul',
+                      'Ago',
+                      'Sep',
+                      'Oct',
+                      'Nov',
+                      'Dic'
+                  ]
+              }
+          });
+        }
 
         // apply button dates range filter
         $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
