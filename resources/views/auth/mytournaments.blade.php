@@ -113,7 +113,7 @@
 
     $(document).ready(function() {
         $('#tournaments').DataTable({
-            "order": [ [ 3, "asc" ], [ 4, "asc" ] ],
+            "order": [ [ 4, "asc" ], [ 3, "asc" ] ],
             "scrollX": true,
             "pagingType": "full_numbers"
         });
