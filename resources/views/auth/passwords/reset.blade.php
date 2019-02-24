@@ -23,7 +23,9 @@
               <div class="card">
 
                   <!-- Card header -->
-                  <div class="card-header" style="text-align: center"> {{ __('Reset Password') }} </div>
+                  <div class="card-header" style="text-align: center">
+                    {{ __('Reset Password') }}
+                  </div>
 
                   <!-- Card body -->
                   <div class="card-body">
@@ -37,12 +39,12 @@
                           <!-- Email -->
                           <div class="form-group row">
 
-                              <!-- Email label -->
+                              <!-- Label -->
                               <label for="email" class="col-md-4 col-form-label text-md-right">
                                 {{ __('E-Mail Address') }}
                               </label>
 
-                              <!-- Email input div -->
+                              <!-- Input -->
                               <div class="col-md-6">
                                   <!-- Email input -->
                                   <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}"
@@ -59,15 +61,16 @@
 
                           <!-- Password -->
                           <div class="form-group row">
-                              <!-- Label password -->
+                              <!-- Label -->
                               <label for="password" class="col-md-4 col-form-label text-md-right">
                                 {{ __('Password') }}
                               </label>
 
-                              <!-- Password input div -->
+                              <!-- Password -->
                               <div class="col-md-6">
                                   <!-- Password input -->
-                                  <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                  <input id="password" type="password" name="password"
+                                         class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
                                   <!-- Password errors -->
                                   @if( $errors->has('password') )
                                       <span class="invalid-feedback" role="alert">
