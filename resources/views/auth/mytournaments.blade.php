@@ -71,7 +71,7 @@
                               </td>
                               <!-- Name -->
                               <td>
-                                <a href="{{ $tournament->website }}" target="_blank">
+                                <a href="{{ url('tournaments/'.$tournament->id) }}" target="_blank">
                                    {{ $tournament->name }}
                                 </a>
                                 <!-- Badge Finished  -->
