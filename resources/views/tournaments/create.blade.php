@@ -143,6 +143,7 @@
 
                   // Add zoom and rotation controls to the map.
                   map.addControl(new mapboxgl.NavigationControl());
+
                   // Add geolocate control to the map.
                   map.addControl(new mapboxgl.GeolocateControl({
                       positionOptions: {
@@ -152,7 +153,8 @@
                   }));
 
                   var geocoder = new MapboxGeocoder({
-                    accessToken: mapboxgl.accessToken
+                    accessToken: mapboxgl.accessToken,
+                    reverseGeocode: true
                   });
 
                   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
@@ -182,6 +184,12 @@
                   // makes a selection and add a symbol that matches the result.
                   geocoder.on('result', function(ev) {
                     map.getSource('single-point').setData(ev.result.geometry);
+                    // get longitude
+                    var longitude = ev.result.geometry.coordinates[0];
+                    // get latitude
+                    var latitude = ev.result.geometry.coordinates[1];
+                    console.log( 'Longitude: ' + longitude );
+                    console.log( 'Latitudee: ' + latitude );
                     });
                   });
 
