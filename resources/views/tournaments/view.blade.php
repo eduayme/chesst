@@ -4,9 +4,6 @@
 
 @section('content')
 
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
   <!-- Alerts -->
   @if( session()->get('success') )
       <div class="alert alert-success" role="alert">
@@ -59,24 +56,6 @@
           </div>
 
         </div>
-
-        <div id='map' style='width: 96%; height: 300px; margin: 0 2%'></div>
-        <script>
-          mapboxgl.accessToken = 'pk.eyJ1IjoiZWR1YXltZSIsImEiOiJjam56M2p0ZXowN25rM29tYnBscTVjZTFjIn0.Oevt-9WPmmimHIyHHlCk0g';
-          var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11'
-          });
-          // Add zoom and rotation controls to the map.
-          map.addControl(new mapboxgl.NavigationControl());
-          // Add geolocate control to the map.
-          map.addControl(new mapboxgl.GeolocateControl({
-              positionOptions: {
-              enableHighAccuracy: true
-            },
-            trackUserLocation: true
-          }));
-        </script>
 
   </div>
 

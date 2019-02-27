@@ -103,6 +103,17 @@
                     </div>
                 </div>
 
+                <!-- Address -->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="address"> {{ __('tournaments.address') }}: </label>
+                      <div id='geocoder' class="geocoder" name="address"></div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div id='map' style='width: 100%; height: 300px;'></div>
+
                 <!-- User_id HIDDEN -->
                 <input type="hidden" name="user_id" value={{ Auth::user()->id }}>
 
@@ -113,6 +124,69 @@
                       {{ __('main.add tournament') }}
                     </button>
                 </div>
+
+
+                <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+                <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+                <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.min.js'></script>
+                <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.css' type='text/css' />
+                <style>
+                  .mapboxgl-ctrl-geocoder { min-width:100%; }
+                </style>
+
+                <script>
+                  mapboxgl.accessToken = 'pk.eyJ1IjoiZWR1YXltZSIsImEiOiJjam56M2p0ZXowN25rM29tYnBscTVjZTFjIn0.Oevt-9WPmmimHIyHHlCk0g';
+                  var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11'
+                  });
+
+                  // Add zoom and rotation controls to the map.
+                  map.addControl(new mapboxgl.NavigationControl());
+                  // Add geolocate control to the map.
+                  map.addControl(new mapboxgl.GeolocateControl({
+                      positionOptions: {
+                      enableHighAccuracy: true
+                    },
+                    trackUserLocation: true
+                  }));
+
+                  var geocoder = new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken
+                  });
+
+                  document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+                  // After the map style has loaded on the page, add a source layer and default
+                  // styling for a single point.
+                  map.on('load', function() {
+                    map.addSource('single-point', {
+                      "type": "geojson",
+                      "data": {
+                      "type": "FeatureCollection",
+                      "features": []
+                    }
+                  });
+
+                  map.addLayer({
+                    "id": "point",
+                    "source": "single-point",
+                    "type": "circle",
+                    "paint": {
+                    "circle-radius": 7,
+                    "circle-color": "#7F0308"
+                    }
+                  });
+
+                  // Listen for the `result` event from the MapboxGeocoder that is triggered when a user
+                  // makes a selection and add a symbol that matches the result.
+                  geocoder.on('result', function(ev) {
+                    map.getSource('single-point').setData(ev.result.geometry);
+                    });
+                  });
+
+                </script>
+
 
             </form>
 

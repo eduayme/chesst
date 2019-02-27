@@ -24,5 +24,6 @@ return [
     'finished' => 'Finished',
     'min' => 'minutes',
     'sec' => 'seconds',
-    'location' => 'Location'
+    'location' => 'Location',
+    'address' => 'Address'
 ];
