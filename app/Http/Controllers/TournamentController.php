@@ -52,24 +52,28 @@ class TournamentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:50',
-            'category' => 'required',
-            'begin'    => 'required|date',
-            'end'      => 'required|date',
-            'country'  => 'required',
-            'city'     => 'required',
-            'website'  => 'required|url',
-            'user_id'  => 'required'
+            'name'      => 'required|string|max:50',
+            'category'  => 'required',
+            'begin'     => 'required|date',
+            'end'       => 'required|date',
+            'country'   => 'required',
+            'city'      => 'required',
+            'address'   => 'required',
+            'website'   => 'required|url',
+            'user_id'   => 'required'
         ]);
         $tournament = new Tournament([
-            'name'     => $request->get('name'),
-            'category' => $request->get('category'),
-            'begin'    => $request->get('begin'),
-            'end'      => $request->get('end'),
-            'country'  => $request->get('country'),
-            'city'     => $request->get('city'),
-            'website'  => $request->get('website'),
-            'user_id'  => $request->get('user_id')
+            'name'      => $request->get('name'),
+            'category'  => $request->get('category'),
+            'begin'     => $request->get('begin'),
+            'end'       => $request->get('end'),
+            'country'   => $request->get('country'),
+            'city'      => $request->get('city'),
+            'address'   => $request->get('address'),
+            'latitude'  => $request->get('latitude'),
+            'longitude' => $request->get('longitude'),
+            'website'   => $request->get('website'),
+            'user_id'   => $request->get('user_id')
         ]);
         $tournament->save();
         return redirect( '/tournaments' )
@@ -118,19 +122,23 @@ class TournamentController extends Controller
             'end'      => 'required|date',
             'country'  => 'required',
             'city'     => 'required',
+            'address'  => 'required',
             'website'  => 'required|url',
             'user_id'  => 'required'
         ]);
 
         $tournament = Tournament::find($id);
-        $tournament->name     = $request->get('name');
-        $tournament->category = $request->get('category');
-        $tournament->begin    = $request->get('begin');
-        $tournament->end      = $request->get('end');
-        $tournament->country  = $request->get('country');
-        $tournament->city     = $request->get('city');
-        $tournament->website  = $request->get('website');
-        $tournament->user_id  = $request->get('user_id');
+        $tournament->name      = $request->get('name');
+        $tournament->category  = $request->get('category');
+        $tournament->begin     = $request->get('begin');
+        $tournament->end       = $request->get('end');
+        $tournament->country   = $request->get('country');
+        $tournament->city      = $request->get('city');
+        $tournament->address   = $request->get('address');
+        $tournament->latitude  = $request->get('latitude');
+        $tournament->longitude = $request->get('longitude');
+        $tournament->website   = $request->get('website');
+        $tournament->user_id   = $request->get('user_id');
         $tournament->save();
 
         return redirect( '/tournaments' )

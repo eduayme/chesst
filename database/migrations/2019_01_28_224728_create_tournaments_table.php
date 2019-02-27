@@ -21,9 +21,6 @@ class CreateTournamentsTable extends Migration
             $table->dateTime('end');
             $table->string('country');
             $table->string('city');
-            $table->string('address');
-            $table->double('longitude');
-            $table->double('latitude');
             $table->string('website');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
