@@ -238,9 +238,9 @@
           map.addSource('single-point', {
             "type": "geojson",
             "data": {
-            "type": "FeatureCollection",
-            "features": []
-          }
+              "type": "FeatureCollection",
+              "features": []
+            }
         });
 
         map.addLayer({
@@ -248,8 +248,8 @@
           "source": "single-point",
           "type": "circle",
           "paint": {
-          "circle-radius": 7,
-          "circle-color": "#7F0308"
+            "circle-radius": 7,
+            "circle-color": "#7F0308"
           }
         });
 
