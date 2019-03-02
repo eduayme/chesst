@@ -88,8 +88,13 @@
         // mapbox
         mapboxgl.accessToken = 'pk.eyJ1IjoiZWR1YXltZSIsImEiOiJjam56M2p0ZXowN25rM29tYnBscTVjZTFjIn0.Oevt-9WPmmimHIyHHlCk0g';
         var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11'
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [
+                {!! json_encode( $tournament->longitude ) !!},
+                {!! json_encode( $tournament->latitude  ) !!}
+            ],
+            zoom: 10
         });
 
         // Add zoom and rotation controls to the map.
@@ -116,7 +121,10 @@
                             "type": "Feature",
                             "geometry": {
                                 "type": "Point",
-                                "coordinates": [-77.03238901390978, 38.913188059745586]
+                                "coordinates": [
+                                    {!! json_encode( $tournament->longitude ) !!},
+                                    {!! json_encode( $tournament->latitude  ) !!}
+                                ]
                             },
                             "properties": {
                                 "title": {!! json_encode( $tournament->name ) !!},
@@ -134,12 +142,6 @@
                 }
             });
         });
-
-        var markerArray = [];
-        markerArray.push(L.marker([-77.03238901390978, 38.913188059745586]));
-
-        var group = L.featureGroup(markerArray).addTo(map);
-        map.fitBounds(group.getBounds());
 
     });
 
