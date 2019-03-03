@@ -47,8 +47,6 @@
                         <th scope="col"> {{ __('tournaments.time control') }} </th>
                         <th scope="col"> {{ __('tournaments.begin date') }} </th>
                         <th scope="col"> {{ __('tournaments.end date') }} </th>
-                        <th scope="col"> {{ __('tournaments.country') }} </th>
-                        <th scope="col"> {{ __('tournaments.city') }} </th>
                       </tr>
                   </thead>
 
@@ -75,7 +73,7 @@
                                    {{ $tournament->name }}
                                 </a>
                                 <!-- Badge Finished  -->
-                                @if( \Carbon\Carbon::parse( $tournament->end )->lt( now() ) )
+                                @if( \Carbon\Carbon::parse( $tournament->end )->addDays(1)->lt( now() ) )
                                   <span class="badge badge-warning"> {{ __('tournaments.finished') }} </span>
                                 <!-- Badge Started  -->
                                 @elseif( \Carbon\Carbon::parse( $tournament->begin )->lt( now() ) )
@@ -88,10 +86,6 @@
                               <td> {{ date('d-M-Y', strtotime($tournament->begin)) }} </td>
                               <!-- End date -->
                               <td> {{ date('d-M-Y', strtotime($tournament->end)) }} </td>
-                              <!-- Country -->
-                              <td> {{ $tournament->country }} </td>
-                              <!-- City -->
-                              <td> {{ $tournament->city }} </td>
                           </tr>
                       @endforeach
 
