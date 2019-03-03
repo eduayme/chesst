@@ -27,56 +27,111 @@
       <div class="card" style="padding: 30px 15px">
 
         <!-- Name -->
-        <h3 class="text-center">
+        <h3 class="text-center" style="padding: 15px 0">
           {{ $tournament->name }}
         </h3>
 
-        <div class="container text-center">
+        <div class="container">
+
+          <!-- With address -->
+          @if( $tournament->address )
 
           <div class="row">
-            <div class="col-sm" style="padding: 15px">
-                <!-- Begin date -->
-                <span class="octicon octicon-calendar"></span>
-                <b> {{ __('tournaments.begin date') }}: </b> </br>
-                {{ date('d-M-Y', strtotime($tournament->begin)) }}
+
+            <div class="col-sm-5 text-center" style="height: 500px">
+              <div class="col-sm" style="padding: 15px">
+                  <!-- Time control -->
+                  <span class="octicon octicon-clock"></span>
+                  {{ __('tournaments.time control') }}:
+                  <h5><b> {{ $tournament->category }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 15px">
+                  <!-- Begin date -->
+                  <span class="octicon octicon-calendar"></span>
+                  {{ __('tournaments.begin date') }}:
+                  <h5><b> {{ date('d-M-Y', strtotime($tournament->begin)) }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 15px">
+                  <!-- End date -->
+                  <span class="octicon octicon-calendar"></span>
+                  {{ __('tournaments.end date') }}:
+                  <h5><b> {{ date('d-M-Y', strtotime($tournament->end)) }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 15px">
+                  <!-- Location -->
+                  <span class="octicon octicon-location"></span>
+                  {{ __('tournaments.location') }}:
+                  <h5><b> {{ $tournament->city }}, {{ $tournament->country }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 15px">
+                  <!-- Address -->
+                  <span class="octicon octicon-location"></span>
+                  {{ __('tournaments.address') }}:
+                  <h5><b> {{ $tournament->address }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 15px">
+                  <!-- Website -->
+                  <a href="{{ $tournament->website }}" class="btn btn-outline-secondary"
+                     role="button" target="_blank">
+                  <span class="octicon octicon-link"></span>
+                  {{ __('tournaments.website') }}
+                </a>
+              </div>
             </div>
-            <div class="col-sm" style="padding: 15px">
-                <!-- End date -->
-                <span class="octicon octicon-calendar"></span>
-                <b> {{ __('tournaments.end date') }}: </b> </br>
-                {{ date('d-M-Y', strtotime($tournament->end)) }}
-            </div>
-            <div class="col-sm" style="padding: 15px">
-                <!-- Location -->
-                <span class="octicon octicon-location"></span>
-                <b> {{ __('tournaments.location') }}: </b> </br>
-                {{ $tournament->city }}, {{ $tournament->country }}
-            </div>
-            <div class="col-sm" style="padding: 15px">
-                <!-- Time control -->
-                <span class="octicon octicon-clock"></span>
-                <b> {{ __('tournaments.time control') }}: </b> </br>
-                {{ $tournament->category }}
-            </div>
-            <div class="col-sm" style="padding: 15px">
-                <!-- Website -->
-                <a href="{{ $tournament->website }}" class="btn btn-outline-secondary"
-                   role="button" target="_blank">
-                <span class="octicon octicon-link"></span>
-                {{ __('tournaments.website') }}
-              </a>
+
+            <div class="col-sm-7">
+                <div id='map' style='height: 500px'></div>
             </div>
           </div>
 
-        </div>
+          <!-- No address -->
+          @else
 
-        @if( $tournament->address )
-            <div id='map' style='height: 300px; margin: 30px'></div>
-        @endif
+          <div class="row text-center">
+
+              <div class="col-sm" style="padding: 5px">
+                  <!-- Time control -->
+                  <span class="octicon octicon-clock"></span>
+                  {{ __('tournaments.time control') }}:
+                  <h5><b> {{ $tournament->category }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 5px">
+                  <!-- Begin date -->
+                  <span class="octicon octicon-calendar"></span>
+                  {{ __('tournaments.begin date') }}:
+                  <h5><b> {{ date('d-M-Y', strtotime($tournament->begin)) }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 5px">
+                  <!-- End date -->
+                  <span class="octicon octicon-calendar"></span>
+                  {{ __('tournaments.end date') }}:
+                  <h5><b> {{ date('d-M-Y', strtotime($tournament->end)) }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 5px">
+                  <!-- Location -->
+                  <span class="octicon octicon-location"></span>
+                  {{ __('tournaments.location') }}:
+                  <h5><b> {{ $tournament->city }}, {{ $tournament->country }} </b></h5>
+              </div>
+              <div class="col-sm" style="padding: 5px">
+                  <!-- Website -->
+                  <a href="{{ $tournament->website }}" class="btn btn-outline-secondary"
+                     role="button" target="_blank">
+                  <span class="octicon octicon-link"></span>
+                  {{ __('tournaments.website') }}
+                </a>
+              </div>
+
+          </div>
+
+          @endif
+
+        </div>
 
   </div>
 
 @endsection
+
 
 <!-- JQuery 3.3.1 -->
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
