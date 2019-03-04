@@ -9,7 +9,7 @@
 
             <li class="list-inline-item"> | </li>
 
-            <li class="list-inline-item"> {{ __('main.version') }} 1.1 </li>
+            <li class="list-inline-item"> {{ __('main.version') }} 1.2 </li>
 
             <li class="list-inline-item"> | </li>
 
