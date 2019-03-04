@@ -76,7 +76,7 @@ class TournamentController extends Controller
             'user_id'   => $request->get('user_id')
         ]);
         $tournament->save();
-        return redirect( '/tournaments' )
+        return redirect( '/mytournaments' )
         ->with( 'success', $tournament->name . __('message.added') );
     }
 
@@ -141,7 +141,7 @@ class TournamentController extends Controller
         $tournament->user_id   = $request->get('user_id');
         $tournament->save();
 
-        return redirect( '/tournaments' )
+        return redirect( '/mytournaments' )
         ->with( 'success', $tournament->name . __('message.updated') );
     }
 
