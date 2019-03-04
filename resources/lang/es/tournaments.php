@@ -20,10 +20,13 @@ return [
     'website' => 'Página web',
     'type time control' => 'Tipo de control de tiempo',
     'delete' => 'Eliminar',
+    'edit' => 'Editar',
     'started' => 'Empezado',
     'finished' => 'Finalizado',
     'min' => 'minutos',
     'sec' => 'segundos',
     'location' => 'Localización',
-    'address' => 'Dirección'
+    'address' => 'Dirección',
+    'save changes' => 'Guardar cambios',
+    'search' => 'Buscar'
 ];

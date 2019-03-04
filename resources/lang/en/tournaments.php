@@ -20,10 +20,13 @@ return [
     'website' => 'Website',
     'type time control' => 'Type time control',
     'delete' => 'Delete',
+    'edit' => 'Edit',
     'started' => 'Started',
     'finished' => 'Finished',
     'min' => 'minutes',
     'sec' => 'seconds',
     'location' => 'Location',
-    'address' => 'Address'
+    'address' => 'Address',
+    'save changes' => 'Save changes',
+    'search' => 'Search'
 ];

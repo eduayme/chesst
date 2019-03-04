@@ -4,6 +4,7 @@ return [
     'intro' => 'The best place to find chess tournaments',
     'find tournaments' => 'Find Tournaments',
     'add tournament' => 'Add Tournament',
+    'edit tournament' => 'Edit Tournament',
     'home' => 'Home',
     'tournaments' => 'Tournaments',
     'logout' => 'Logout',

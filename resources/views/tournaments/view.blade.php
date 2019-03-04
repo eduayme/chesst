@@ -59,7 +59,7 @@
               </div>
               <div class="col-sm" style="padding: 15px">
                   <!-- Location -->
-                  <span class="octicon octicon-location"></span>
+                  <span class="octicon octicon-globe"></span>
                   {{ __('tournaments.location') }}:
                   <h5><b> {{ $tournament->city }}, {{ $tournament->country }} </b></h5>
               </div>

@@ -42,7 +42,8 @@
                   <!-- Table header -->
                   <thead class="thead-dark">
                       <tr>
-                        <th scope="col"> {{ __('tournaments.action') }} </th>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
                         <th scope="col"> {{ __('tournaments.name') }} </th>
                         <th scope="col"> {{ __('tournaments.time control') }} </th>
                         <th scope="col"> {{ __('tournaments.begin date') }} </th>
@@ -66,6 +67,14 @@
                                           {{ __('tournaments.delete') }}
                                         </button>
                                     </form>
+                              </td>
+                              <td>
+                                    <!-- Edit -->
+                                    <a class="btn btn-sm btn-outline-secondary" href="{{ URL::to('tournaments/' . $tournament->id . '/edit') }}">
+                                      <span class="octicon octicon-pencil"></span>
+                                      {{ __('tournaments.edit') }}
+                                    </a>
+
                               </td>
                               <!-- Name -->
                               <td>

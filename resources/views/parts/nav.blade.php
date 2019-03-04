@@ -21,7 +21,7 @@
 
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../" style="margin-right: 15px">
+                    <a class="nav-link" href="../../../" style="margin-right: 15px">
                       <span class="octicon octicon-home"></span>
                       {{ __('main.home') }} <span class="sr-only">(current)</span>
                     </a>
@@ -29,7 +29,7 @@
 
                 <!-- Tournaments list -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../tournaments"  style="margin-right: 15px">
+                    <a class="nav-link" href="../../../tournaments"  style="margin-right: 15px">
                       <span class="octicon octicon-database"></span>
                       {{ __('main.tournaments') }}
                     </a>
@@ -57,7 +57,7 @@
 
                 <!-- Create tournament button -->
                 <li class="nav-item" style="margin-right: 20px; margin-left: 20px">
-                    <a href="../tournaments/create" class="btn btn-outline-light" role="button">
+                    <a href="../../../tournaments/create" class="btn btn-outline-light" role="button">
                       <span class="octicon octicon-cloud-upload"></span>
                       {{ __('main.add tournament') }}
                     </a>

@@ -48,19 +48,19 @@
                     @csrf
                     <!-- Name -->
                     <div class="form-group col-md-6">
-                      <label for="name"> {{ __('tournaments.name') }}: </label>
+                      <label for="name"> {{ __('tournaments.name') }} </label>
                       <input type="text" class="form-control" name="name"/>
                     </div>
                     <!-- Website -->
                     <div class="form-group col-md-6">
-                      <label for="website"> {{ __('tournaments.website') }}: </label>
+                      <label for="website"> {{ __('tournaments.website') }} </label>
                       <input type="url" class="form-control" name="website"/>
                     </div>
                 </div>
 
                 <!-- Time control -->
                 <div class="form-group">
-                    <label for="category"> {{ __('tournaments.time control') }}: </label>
+                    <label for="category"> {{ __('tournaments.time control') }} </label>
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-3">
@@ -87,12 +87,12 @@
                 <div class="form-row">
                     <!-- Begin date -->
                     <div class="form-group col-md-6">
-                        <label for="begin"> {{ __('tournaments.begin date') }}: </label>
+                        <label for="begin"> {{ __('tournaments.begin date') }} </label>
                         <input type="text" class="form-control" name="begin" value=""/>
                     </div>
                     <!-- End date -->
                     <div class="form-group col-md-6">
-                        <label for="end"> {{ __('tournaments.end date') }}: </label>
+                        <label for="end"> {{ __('tournaments.end date') }} </label>
                         <input type="text" class="form-control" name="end" value=""/>
                     </div>
                 </div>
@@ -102,12 +102,12 @@
                 <div class="form-row">
                     <!-- Country -->
                     <div class="form-group col-md-6">
-                        <label for="begin"> {{ __('tournaments.country') }}: </label>
+                        <label for="begin"> {{ __('tournaments.country') }} </label>
                         <input id="country" type="text" class="form-control" name="country"/>
                     </div>
                     <!-- City -->
                     <div class="form-group  col-md-6">
-                        <label for="begin"> {{ __('tournaments.city') }}: </label>
+                        <label for="begin"> {{ __('tournaments.city') }} </label>
                         <input id="city" type="text" class="form-control" name="city"/>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                 <style> .mapboxgl-ctrl-geocoder { min-width:100%; } </style>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="address"> {{ __('tournaments.address') }}: </label>
+                      <label for="address"> {{ __('tournaments.address') }} </label>
                       <div id='geocoder' class="geocoder" style="min-width: 100%;"></div>
                     </div>
                 </div>
