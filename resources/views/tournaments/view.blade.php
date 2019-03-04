@@ -27,9 +27,9 @@
       <div class="card" style="padding: 30px 15px">
 
         <!-- Name -->
-        <h3 class="text-center" style="padding: 15px 0">
+        <h2 class="text-center" style="padding: 15px 0">
           {{ $tournament->name }}
-        </h3>
+        </h2>
 
         <div class="container">
 

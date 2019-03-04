@@ -12,6 +12,7 @@ return [
     'spanish' => 'Español',
     'version' => 'Versión',
     'free && open source' => 'Gratis && Código Abierto',
+    'open source' => 'Código Abierto',
     'privacy policy' => 'Políticas de Privacidad',
     'terms of service' => 'Términos de Servicio'
 ];

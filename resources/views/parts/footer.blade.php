@@ -15,7 +15,7 @@
 
             <li class="list-inline-item">
               <a href="https://github.com/eduayme/chesst">
-                {{ __('main.free && open source') }}
+                {{ __('main.open source') }}
               </a>
             </li>
 

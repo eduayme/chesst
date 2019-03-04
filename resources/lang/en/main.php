@@ -12,6 +12,7 @@ return [
     'spanish' => 'Spanish',
     'version' => 'Version',
     'free && open source' => 'Free && Open Source',
+    'open source' => 'Open Source',
     'privacy policy' => 'Privacy Policy',
     'terms of service' => 'Terms of Service'
 ];
