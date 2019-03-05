@@ -4,12 +4,21 @@
 
 @section('content')
 
-        <!-- Alerts -->
+        <!-- Success alerts -->
         @if( session()->get('success') )
             <div class="alert alert-success" role="alert">
               <div class="container text-center" style="margin-bottom: 0">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                   {{ session()->get('success') }}
+              </div>
+            </div>
+        @endif
+        <!-- Info alerts -->
+        @if( session()->get('primary') )
+            <div class="alert alert-primary" role="alert">
+              <div class="container text-center" style="margin-bottom: 0">
+                <a href="#" class="close" data-dismiss="primary" aria-label="close">&times;</a>
+                  {{ session()->get('primary') }}
               </div>
             </div>
         @endif

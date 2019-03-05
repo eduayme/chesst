@@ -76,6 +76,7 @@ class TournamentController extends Controller
             'user_id'   => $request->get('user_id')
         ]);
         $tournament->save();
+
         return redirect( '/mytournaments' )
         ->with( 'success', $tournament->name . __('message.added') );
     }
@@ -103,7 +104,16 @@ class TournamentController extends Controller
     {
         $tournament = Tournament::find($id);
 
-        return view( 'tournaments.edit', compact('tournament') );
+        $currentUser = \Auth::user()->id;
+        $user        = $tournament->user_id;
+
+        if( $user == $currentUser ) {
+            return view( 'tournaments.edit', compact('tournament') );
+        }
+        else {
+          return redirect( '/mytournaments' )
+          ->with( 'primary', __('message.not allowed') );
+        }
     }
 
     /**
