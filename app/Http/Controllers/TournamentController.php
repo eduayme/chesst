@@ -112,7 +112,7 @@ class TournamentController extends Controller
         }
         else {
           return redirect( '/mytournaments' )
-          ->with( 'primary', __('message.not allowed') );
+          ->with( 'primary', __('message.not allowed') . $tournament->name );
         }
     }
 
