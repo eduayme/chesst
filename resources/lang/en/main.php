@@ -7,6 +7,8 @@ return [
     'edit tournament' => 'Edit Tournament',
     'home' => 'Home',
     'tournaments' => 'Tournaments',
+    'explore' => 'Explore',
+    'discover' => 'Discover',
     'logout' => 'Logout',
     'language' => 'Language',
     'english' => 'English',

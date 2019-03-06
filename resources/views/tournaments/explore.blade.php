@@ -11,7 +11,6 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.min.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.2/mapbox-gl-geocoder.css' rel='stylesheet' type='text/css' />
 
-
     <!-- Success alerts -->
     @if( session()->get('success') )
         <div class="alert alert-success" role="alert">
@@ -106,6 +105,9 @@
 <script>
 
     $(document).ready(function() {
+      // locale language
+      var locale = '{{ config('app.locale') }}';
+      
       // mapbox
       mapboxgl.accessToken = 'pk.eyJ1IjoiZWR1YXltZSIsImEiOiJjam56M2p0ZXowN25rM29tYnBscTVjZTFjIn0.Oevt-9WPmmimHIyHHlCk0g';
       var map = new mapboxgl.Map({
@@ -115,7 +117,7 @@
               [33],
               [33]
           ],
-          zoom: 3
+          zoom: 1
       });
 
       // Add zoom and rotation controls to the map.
@@ -128,6 +130,68 @@
           },
           trackUserLocation: true
       }));
+
+      var filter_minDay = new Date();
+
+      if( locale == 'en' ){
+        $('input[name="datefilter"]').daterangepicker({
+            autoUpdateInput: false,
+            minDate: filter_minDay,
+            opens: "center",
+            locale: {
+                cancelLabel: 'Clear',
+                firstDay: 1
+            }
+        });
+      }
+      else if( locale == 'es' ) {
+        $('input[name="datefilter"]').daterangepicker({
+            autoUpdateInput: false,
+            minDate: filter_minDay,
+            opens: "center",
+            locale: {
+                cancelLabel: 'Borrar',
+                firstDay: 1,
+                applyLabel: 'Aceptar',
+                cancelLabel: 'Cancelar',
+                daysOfWeek: [
+                    'Do',
+                    'Lu',
+                    'Ma',
+                    'Mi',
+                    'Ju',
+                    'Vi',
+                    'Sa'
+                ],
+                monthNames: [
+                    'Ene',
+                    'Feb',
+                    'Mar',
+                    'Abr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Ago',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dic'
+                ]
+            }
+        });
+      }
+
+      // apply button dates range filter
+      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val( 'From ' + picker.startDate.format('DD-MMM-Y') + ' to ' + picker.endDate.format('DD-MMM-Y') );
+           table.draw();
+      });
+
+      // cancel button dates range filter
+      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val( '' );
+          table.draw();
+      });
 
     });
 

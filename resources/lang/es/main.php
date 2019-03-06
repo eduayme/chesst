@@ -7,6 +7,8 @@ return [
     'edit tournament'  => 'Editar torneo',
     'home'             => 'Inicio',
     'tournaments' => 'Torneos',
+    'explore' => 'Explorar',
+    'discover' => 'Descubrir',
     'logout' => 'Cerrar sesión',
     'language' => 'Idioma',
     'english' => 'Inglés',

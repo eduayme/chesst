@@ -35,6 +35,14 @@
                     </a>
                 </li>
 
+                <!-- Explore map -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../explore"  style="margin-right: 15px">
+                      <span class="octicon octicon-milestone"></span>
+                      {{ __('main.explore') }}
+                    </a>
+                </li>
+
             </ul>
 
             <!-- Right content -->

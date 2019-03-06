@@ -151,6 +151,9 @@
 <script>
 
     $(document).ready(function() {
+        // locale language
+        var locale = '{{ config('app.locale') }}';
+        
         // datetable
          var table = $('#tourn').DataTable({
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
@@ -163,9 +166,6 @@
                 }
             ]
         });
-
-        // locale language
-        var locale = '{{ config('app.locale') }}';
 
         // categories filter
         $('#categories').on('change', function () {
