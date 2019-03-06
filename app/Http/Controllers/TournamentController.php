@@ -170,4 +170,18 @@ class TournamentController extends Controller
         ->with( 'success', $tournament->name . __('message.deleted') );
     }
 
+    public function explore()
+    {
+      $tournaments = Tournament::all()->where( 'end', '>=', Carbon::today() );
+
+      $categories = Tournament::select( 'category' )->groupBy( 'category' )->get();
+
+      $countries = Tournament::select( 'country' )->groupBy( 'country' )->get();
+
+      $cities = Tournament::select( 'city' )->groupBy( 'city' )->get();
+
+      return view( 'tournaments.explore',
+      compact( 'tournaments', 'categories', 'countries', 'cities' ) );
+    }
+
 }

@@ -22,7 +22,11 @@ Route::get('lang/{lang}', function($lang) {
 
 Auth::routes();
 
+Route::get('/explore', 'TournamentController@explore' );
+
 Route::resource('tournaments', 'TournamentController');
+
+Route::get('/mytournaments', 'MyTournaments@index' );
 
 Route::get('/privacy', function () {
     return view('parts.privacy');
@@ -31,5 +35,3 @@ Route::get('/privacy', function () {
 Route::get('/terms', function () {
     return view('parts.terms');
 });
-
-Route::get('/mytournaments', 'MyTournaments@index' );

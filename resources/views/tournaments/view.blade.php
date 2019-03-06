@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-sm-7">
-                <div id='map' style='height: 500px'></div>
+                <div id='map' style='height: 500px; width: 100%'></div>
             </div>
           </div>
 
