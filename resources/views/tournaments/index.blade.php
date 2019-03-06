@@ -153,7 +153,7 @@
     $(document).ready(function() {
         // locale language
         var locale = '{{ config('app.locale') }}';
-        
+
         // datetable
          var table = $('#tourn').DataTable({
             "order": [ [ 2, "asc" ], [ 3, "asc" ] ],
@@ -189,8 +189,10 @@
             }
         );
 
+        // today date
         var filter_minDay = new Date();
 
+        // input date range
         if( locale == 'en' ){
           $('input[name="datefilter"]').daterangepicker({
               autoUpdateInput: false,

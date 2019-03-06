@@ -107,7 +107,7 @@
     $(document).ready(function() {
       // locale language
       var locale = '{{ config('app.locale') }}';
-      
+
       // mapbox
       mapboxgl.accessToken = 'pk.eyJ1IjoiZWR1YXltZSIsImEiOiJjam56M2p0ZXowN25rM29tYnBscTVjZTFjIn0.Oevt-9WPmmimHIyHHlCk0g';
       var map = new mapboxgl.Map({
@@ -131,12 +131,14 @@
           trackUserLocation: true
       }));
 
-      var filter_minDay = new Date();
+      // today date
+      var today = new Date();
 
+      // input date range
       if( locale == 'en' ){
         $('input[name="datefilter"]').daterangepicker({
             autoUpdateInput: false,
-            minDate: filter_minDay,
+            startDate: today,
             opens: "center",
             locale: {
                 cancelLabel: 'Clear',
@@ -147,7 +149,7 @@
       else if( locale == 'es' ) {
         $('input[name="datefilter"]').daterangepicker({
             autoUpdateInput: false,
-            minDate: filter_minDay,
+            startDate: today,
             opens: "center",
             locale: {
                 cancelLabel: 'Borrar',
