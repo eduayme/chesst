@@ -24,6 +24,8 @@ Auth::routes();
 
 Route::get('/explore', 'TournamentController@explore' );
 
+Route::post('tournaments/fetch', 'TournamentController@fetch');
+
 Route::resource('tournaments', 'TournamentController');
 
 Route::get('/mytournaments', 'MyTournaments@index' );
