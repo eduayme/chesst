@@ -184,18 +184,12 @@ class TournamentController extends Controller
       compact( 'tournaments', 'categories', 'countries', 'cities' ) );
     }
 
-    function fetch(Request $request)
+    function getCitiesList(Request $request)
     {
-       $select = $request->get('select');
-       $value = $request->get('value');
-       $dependent = $request->get('dependent');
-       $data = Tournament::select('city')->where($select, $value)->groupBy($dependent)->get();
-       $output = '<option value="">Select city</option>';
-       foreach($data as $row)
-       {
-        $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
-       }
-       echo $output;
+      $cities = Tournament::select( 'city' )->where("country",$request->country)->groupBy( 'city' )->get();
+
+      return response()->json($cities);
+
     }
 
 }

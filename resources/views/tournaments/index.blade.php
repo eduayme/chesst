@@ -256,33 +256,43 @@
         // countries filter
         $('#countries').on('change', function () {
             table.columns(4).search( this.value ).draw();
+
+            var country = $(this).val();
+            if(country) {
+                $.ajax({
+                   type:"GET",
+                   url:"{{url('get-cities-list')}}?country="+country,
+                   success:function(res){
+                    if(res){
+                        $("#cities").empty();
+                        $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+                        $.each(res,function(key, value){
+                            $("#cities").append('<option value="'+value.city+'">'+value.city+'</option>');
+                        });
+                    }
+                    else{
+                        $("#cities").empty();
+                        $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+                        @foreach( $cities as $city )
+                            $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
+                        @endforeach
+                    }
+                   }
+                });
+            }
+            else {
+                $("#cities").empty();
+                $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+                @foreach( $cities as $city )
+                    $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
+                @endforeach
+            }
         } );
 
         // cities filter
         $('#cities').on('change', function () {
             table.columns(5).search( this.value ).draw();
         } );
-
-        // dynamic select cities
-        $('#cities').change(function(){
-          if($(this).val() != '')
-          {
-           var select = $(this).attr("id");
-           var value = $(this).val();
-           var dependent = $(this).data('dependent');
-           var _token = $('input[name="_token"]').val();
-           $.ajax({
-            url:"{{ route('tournaments.fetch') }}",
-            method:"POST",
-            data:{select:select, value:value, _token:_token, dependent:dependent},
-            success:function(result)
-            {
-             $('#'+dependent).html(result);
-            }
-
-           })
-          }
-         });
 
     });
 
