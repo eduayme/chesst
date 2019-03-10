@@ -257,22 +257,21 @@
         $('#countries').on('change', function () {
             table.columns(4).search( this.value ).draw();
 
+            $("#cities").empty();
+            $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+
             var country = $(this).val();
             if(country) {
                 $.ajax({
-                   type:"GET",
-                   url:"{{url('get-cities-list')}}?country="+country,
-                   success:function(res){
-                    if(res){
-                        $("#cities").empty();
-                        $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
-                        $.each(res,function(key, value){
-                            $("#cities").append('<option value="'+value.city+'">'+value.city+'</option>');
+                   type: "GET",
+                   url: "{{url('get-cities-list')}}?country=" + country,
+                   success:function(res) {
+                    if(res) {
+                        $.each(res,function(key, value) {
+                            $("#cities").append('<option value="'+ value.city +'">'+ value.city +'</option>');
                         });
                     }
-                    else{
-                        $("#cities").empty();
-                        $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+                    else {
                         @foreach( $cities as $city )
                             $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
                         @endforeach
@@ -281,12 +280,12 @@
                 });
             }
             else {
-                $("#cities").empty();
-                $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
                 @foreach( $cities as $city )
                     $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
                 @endforeach
             }
+
+            table.columns(5).search( '' ).draw();
         } );
 
         // cities filter

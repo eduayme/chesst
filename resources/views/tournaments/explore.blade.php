@@ -186,14 +186,43 @@
       // apply button dates range filter
       $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
           $(this).val( 'From ' + picker.startDate.format('DD-MMM-Y') + ' to ' + picker.endDate.format('DD-MMM-Y') );
-           table.draw();
       });
 
       // cancel button dates range filter
       $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
           $(this).val( '' );
-          table.draw();
       });
+
+      // countries filter
+      $('#countries').on('change', function () {
+          $("#cities").empty();
+          $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
+
+          var country = $(this).val();
+          if(country) {
+              $.ajax({
+                 type: "GET",
+                 url: "{{url('get-cities-list')}}?country=" + country,
+                 success:function(res) {
+                  if(res) {
+                      $.each(res,function(key, value) {
+                          $("#cities").append('<option value="'+ value.city +'">'+ value.city +'</option>');
+                      });
+                  }
+                  else {
+                      @foreach( $cities as $city )
+                          $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
+                      @endforeach
+                  }
+                 }
+              });
+          }
+          else {
+              @foreach( $cities as $city )
+                  $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
+              @endforeach
+          }
+      } );
 
     });
 

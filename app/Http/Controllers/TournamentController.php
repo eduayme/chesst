@@ -186,7 +186,12 @@ class TournamentController extends Controller
 
     function getCitiesList(Request $request)
     {
-      $cities = Tournament::select( 'city' )->where("country",$request->country)->groupBy( 'city' )->get();
+      if( empty($request) ) {
+          $cities = Tournament::select( 'city' )->groupBy( 'city' )->get();
+      }
+      else {
+          $cities = Tournament::select( 'city' )->where( 'country', $request->country )->groupBy( 'city' )->get();
+      }
 
       return response()->json($cities);
 
