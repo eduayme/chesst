@@ -49,50 +49,10 @@
 
     <div class="container" style="margin-top: 15px">
 
-      <!-- Filters -->
-      <div class="row text-center" style="margin-bottom: 20px">
-
-          <!-- Categories filter -->
-          <div class="col-sm">
-              <select class="form-control" id="categories" style="margin: 5px 0">
-                  <option value=""> {{ __('tournaments.all controls') }} </option>
-                  <option value="Blitz"> {{ __('tournaments.blitz') }} </option>
-                  <option value="Rapid"> {{ __('tournaments.rapid') }} </option>
-                  <option value="Standard"> {{ __('tournaments.standard') }} </option>
-              </select>
-          </div>
-
-          <!-- Dates filter -->
-          <div class="col-sm-5">
-              <input class="form-control" type="text" name="datefilter"
-                    value="" placeholder="{{ __('tournaments.all dates') }}" style="margin: 5px 0"/>
-          </div>
-
-          <!-- Country filter -->
-          <div class="col-sm">
-              <select class="form-control" id="countries" style="margin: 5px 0">
-                  <option value=""> {{ __('tournaments.all countries') }} </option>
-                  @foreach( $countries as $country )
-                      <option value="{{ $country['country'] }}"> {{ $country['country'] }} </option>
-                  @endforeach
-              </select>
-          </div>
-
-          <!-- Cities filter -->
-          <div class="col-sm">
-              <select class="form-control" id="cities" style="margin: 5px 0">
-                  <option value=""> {{ __('tournaments.all cities') }} </option>
-                  @foreach( $cities as $city )
-                      <option value="{{ $city['city'] }}"> {{ $city['city'] }} </option>
-                  @endforeach
-              </select>
-          </div>
-
-      </div>
-
       <!-- Tournaments map -->
       <div id='map' style='height: 500px; width: 100%'></div>
 
+    </div>
     @endif
 
 @endsection
@@ -130,99 +90,6 @@
           },
           trackUserLocation: true
       }));
-
-      // today date
-      var today = new Date();
-
-      // input date range
-      if( locale == 'en' ){
-        $('input[name="datefilter"]').daterangepicker({
-            autoUpdateInput: false,
-            startDate: today,
-            opens: "center",
-            locale: {
-                cancelLabel: 'Clear',
-                firstDay: 1
-            }
-        });
-      }
-      else if( locale == 'es' ) {
-        $('input[name="datefilter"]').daterangepicker({
-            autoUpdateInput: false,
-            startDate: today,
-            opens: "center",
-            locale: {
-                cancelLabel: 'Borrar',
-                firstDay: 1,
-                applyLabel: 'Aceptar',
-                cancelLabel: 'Cancelar',
-                daysOfWeek: [
-                    'Do',
-                    'Lu',
-                    'Ma',
-                    'Mi',
-                    'Ju',
-                    'Vi',
-                    'Sa'
-                ],
-                monthNames: [
-                    'Ene',
-                    'Feb',
-                    'Mar',
-                    'Abr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Ago',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dic'
-                ]
-            }
-        });
-      }
-
-      // apply button dates range filter
-      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val( 'From ' + picker.startDate.format('DD-MMM-Y') + ' to ' + picker.endDate.format('DD-MMM-Y') );
-      });
-
-      // cancel button dates range filter
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val( '' );
-      });
-
-      // countries filter
-      $('#countries').on('change', function () {
-          $("#cities").empty();
-          $("#cities").append('<option value=""> {{ __("tournaments.all cities") }} </option>');
-
-          var country = $(this).val();
-          if(country) {
-              $.ajax({
-                 type: "GET",
-                 url: "{{url('get-cities-list')}}?country=" + country,
-                 success:function(res) {
-                  if(res) {
-                      $.each(res,function(key, value) {
-                          $("#cities").append('<option value="'+ value.city +'">'+ value.city +'</option>');
-                      });
-                  }
-                  else {
-                      @foreach( $cities as $city )
-                          $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
-                      @endforeach
-                  }
-                 }
-              });
-          }
-          else {
-              @foreach( $cities as $city )
-                  $("#cities").append('<option value="{{ $city["city"] }}"> {{ $city["city"] }} </option>');
-              @endforeach
-          }
-      } );
 
     });
 
