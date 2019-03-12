@@ -53,6 +53,7 @@
       <div id='map' style='height: 500px; width: 100%'></div>
 
     </div>
+
     @endif
 
 @endsection
@@ -90,6 +91,46 @@
           },
           trackUserLocation: true
       }));
+
+      map.on('load', function () {
+
+          map.addLayer({
+              "id": "points",
+              "type": "symbol",
+              "source": {
+                  "type": "geojson",
+                  "data": {
+                      "type": "FeatureCollection",
+                      "features": [
+                        @foreach( $tournaments as $tournament )
+                        {
+                          "type": "Feature",
+                          "geometry": {
+                              "type": "Point",
+                              "coordinates": [
+                                  {!! json_encode( $tournament->longitude ) !!},
+                                  {!! json_encode( $tournament->latitude  ) !!}
+                              ]
+                          },
+                          "properties": {
+                              "title": {!! json_encode( $tournament->name ) !!},
+                              "url": {!! json_encode( url('tournaments/'.$tournament->id) ) !!},
+                              "icon": "marker"
+                          }
+                        },
+                        @endforeach
+                    ]
+                  }
+              },
+              "layout": {
+                  "icon-image": "{icon}-10",
+                  "text-field": "{title}",
+                  "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                  "text-offset": [0, 0.6],
+                  "text-anchor": "top",
+              }
+          });
+      });
 
     });
 
