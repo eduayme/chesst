@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::resource('/', 'HomeController');
 
 Route::get('lang/{lang}', function ($lang) {
     \Session::put('lang', $lang);

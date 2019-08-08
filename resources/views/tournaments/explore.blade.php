@@ -170,6 +170,10 @@
         map.getCanvas().style.cursor = '';
       });
 
+      var clusterRadius = 20;
+      var clusterMaxZoom = 14;
+
+
     });
 
 </script>
