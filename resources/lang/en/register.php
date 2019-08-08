@@ -1,6 +1,7 @@
 <?php
+
 return [
-    'register' => 'Register',
+    'register'         => 'Register',
     'confirm password' => 'Confirm password',
-    'already account' => 'You already have an account?'
+    'already account'  => 'You already have an account?',
 ];

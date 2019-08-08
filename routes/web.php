@@ -13,20 +13,21 @@
 
 Route::resource('/', 'HomeController');
 
-Route::get('lang/{lang}', function($lang) {
+Route::get('lang/{lang}', function ($lang) {
     \Session::put('lang', $lang);
+
     return \Redirect::back();
 })->middleware('web')->name('change_lang');
 
 Auth::routes();
 
-Route::get('/explore', 'TournamentController@explore' );
+Route::get('/explore', 'TournamentController@explore');
 
 Route::resource('tournaments', 'TournamentController');
 
-Route::get('get-cities-list','TournamentController@getCitiesList');
+Route::get('get-cities-list', 'TournamentController@getCitiesList');
 
-Route::get('/mytournaments', 'MyTournaments@index' );
+Route::get('/mytournaments', 'MyTournaments@index');
 
 Route::get('/privacy', function () {
     return view('parts.privacy');

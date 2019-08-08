@@ -1,4 +1,5 @@
 <?php
+
 return [
     'accepted'             => 'El :attribute debe ser aceptado.',
     'active_url'           => 'El :attribute no es una URL válida.',
@@ -14,7 +15,7 @@ return [
         'numeric' => 'El :attribute debe estar entre :min y :max.',
         'file'    => 'El :attribute debe estar entre :min y :max kilobytes.',
         'string'  => 'El :attribute debe estar entre los caracteres :min y :max.',
-        'array'   => 'El :attribute debe tener entre :min y :max elementos.'
+        'array'   => 'El :attribute debe tener entre :min y :max elementos.',
     ],
     'boolean'              => 'El campo :attribute debe ser verdadero o falso.',
     'confirmed'            => 'La confirmación :attribute no coincide.',
@@ -34,13 +35,13 @@ return [
         'numeric' => 'El :attribute debe ser mayor que :value.',
         'file'    => 'El :attribute debe ser mayor que :value kilobytes.',
         'string'  => 'El :attribute debe ser mayor que :value caracteres.',
-        'array'   => 'El :attribute debe tener más de :value elementos.'
+        'array'   => 'El :attribute debe tener más de :value elementos.',
     ],
     'gte'                  => [
         'numeric' => 'El :attribute debe ser mayor o igual que :value.',
         'file'    => 'El :attribute debe ser mayor o igual que :value kilobytes.',
         'string'  => 'El :attribute debe ser mayor o igual que los caracteres :value.',
-        'array'   => 'El :attribute debe tener :value elementos o más.'
+        'array'   => 'El :attribute debe tener :value elementos o más.',
     ],
     'image'                => 'El :attribute debe ser una imagen.',
     'in'                   => 'El :attribute seleccionado no es válido.',
@@ -54,19 +55,19 @@ return [
         'numeric' => 'El :attribute debe ser menor que :value.',
         'file'    => 'El :attribute debe ser menor que :value kilobytes.',
         'string'  => 'El :attribute debe tener menos de :value caracteres.',
-        'array'   => 'El :attribute debe tener menos de :value elementos.'
+        'array'   => 'El :attribute debe tener menos de :value elementos.',
     ],
     'lte'                  => [
         'numeric' => 'El :attribute debe ser menor o igual que :value.',
         'file'    => 'El :attribute debe ser menor o igual a :value kilobytes.',
         'string'  => 'El :attribute debe ser menor o igual a los caracteres :value.',
-        'array'   => 'El :attribute no debe tener más de :value elementos.'
+        'array'   => 'El :attribute no debe tener más de :value elementos.',
     ],
     'max'                  => [
         'numeric' => 'El :attribute no puede ser mayor que :max.',
         'file'    => 'El :attribute no puede ser mayor que :max kilobytes.',
         'string'  => 'El :attribute no puede ser mayor que los caracteres :max.',
-        'array'   => 'El :attribute no puede tener más de :max elementos.'
+        'array'   => 'El :attribute no puede tener más de :max elementos.',
     ],
     'mimes'                => 'El :attribute debe ser un archivo de tipo: :values.',
     'mimetypes'            => 'El :attribute debe ser un archivo de tipo: :values.',
@@ -74,7 +75,7 @@ return [
         'numeric' => 'El :attribute debe ser al menos :min.',
         'file'    => 'El :attribute debe tener al menos :min kilobytes.',
         'string'  => 'El :attribute debe tener al menos :min caracteres.',
-        'array'   => 'El :attribute debe tener al menos :min elementos.'
+        'array'   => 'El :attribute debe tener al menos :min elementos.',
     ],
     'not_in'               => 'El :attribute seleccionado no es válido.',
     'not_regex'            => 'El formato :attribute no es válido.',
@@ -93,7 +94,7 @@ return [
         'numeric' => 'El :attribute debe ser :size.',
         'file'    => 'El :attribute debe ser :size kilobytes.',
         'string'  => 'Los :attribute deben tener :size caracteres.',
-        'array'   => 'El :attribute debe contener :size elementos.'
+        'array'   => 'El :attribute debe contener :size elementos.',
     ],
     'starts_with'          => 'El :attribute debe comenzar con uno de los siguientes: :values',
     'string'               => 'El :attribute debe ser una cadena.',
@@ -104,7 +105,7 @@ return [
     'uuid'                 => 'El :attribute debe ser un UUID válido.',
     'custom'               => [
         'attribute-name' => [
-            'rule-name' => 'mensaje personalizado'
-        ]
-    ]
+            'rule-name' => 'mensaje personalizado',
+        ],
+    ],
 ];

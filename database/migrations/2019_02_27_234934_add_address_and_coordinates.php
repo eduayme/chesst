@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AddAddressAndCoordinates extends Migration
 {
@@ -13,7 +12,7 @@ class AddAddressAndCoordinates extends Migration
      */
     public function up()
     {
-        Schema::table('tournaments', function($table) {
+        Schema::table('tournaments', function ($table) {
             $table->string('address');
             $table->double('longitude');
             $table->double('latitude');
@@ -27,7 +26,7 @@ class AddAddressAndCoordinates extends Migration
      */
     public function down()
     {
-        Schema::table('tournaments', function($table) {
+        Schema::table('tournaments', function ($table) {
             $table->dropColumn('address');
             $table->dropColumn('longitude');
             $table->dropColumn('latitude');
