@@ -18,6 +18,6 @@ class Tournament extends Model
         'longitude',
         'latitude',
         'website',
-        'user_id'
+        'user_id',
     ];
 }
