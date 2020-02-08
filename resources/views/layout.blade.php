@@ -12,6 +12,8 @@
     <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
     <!-- Octicons -->
     <link href="{{ asset('css/octicons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Flickity carousel -->
+    <link href="{{ asset('css/flickity.css') }}" rel="stylesheet" type="text/css" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{{ asset('img/logoChessT_64x64.png') }}}">
 </head>
@@ -44,6 +46,8 @@
     <!-- Bootstrap daterangepicker -->
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/daterangepicker.min.js') }}"></script>
+    <!-- Flickity carousel -->
+    <script src="{{ asset('js/flickity.pkgd.js') }}"></script>
 
 </body>
 

@@ -3,9 +3,10 @@
 return [
     'welcome'             => 'Welcome to ChessT',
     'intro'               => 'The best place to find chess tournaments',
-    'find tournaments'    => 'Find Tournaments',
-    'add tournament'      => 'Add Tournament',
-    'edit tournament'     => 'Edit Tournament',
+    'find tournaments'    => 'Find tournaments',
+    'add tournament'      => 'Add tournament',
+    'edit tournament'     => 'Edit tournament',
+    'next tournaments'    => 'Next tournaments',
     'home'                => 'Home',
     'tournaments'         => 'Tournaments',
     'explore'             => 'Explore',

@@ -6,6 +6,7 @@ return [
     'find tournaments'    => 'Encontrar torneos',
     'add tournament'      => 'Añadir torneo',
     'edit tournament'     => 'Editar torneo',
+    'next tournaments'    => 'Próximos torneos',
     'home'                => 'Inicio',
     'tournaments'         => 'Torneos',
     'explore'             => 'Explorar',
