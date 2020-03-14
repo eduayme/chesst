@@ -24,8 +24,10 @@ class TournamentController extends Controller
 
         $cities = Tournament::select('city')->groupBy('city')->get();
 
-        return view('tournaments.index',
-        compact('tournaments', 'categories', 'countries', 'cities'));
+        return view(
+            'tournaments.index',
+            compact('tournaments', 'categories', 'countries', 'cities')
+        );
     }
 
     /**
@@ -183,8 +185,10 @@ class TournamentController extends Controller
 
         $cities = Tournament::select('city')->groupBy('city')->get();
 
-        return view('tournaments.explore',
-      compact('tournaments', 'categories', 'countries', 'cities'));
+        return view(
+            'tournaments.explore',
+            compact('tournaments', 'categories', 'countries', 'cities')
+        );
     }
 
     public function getCitiesList(Request $request)

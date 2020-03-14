@@ -22,7 +22,9 @@ class HomeController extends Controller
 
         $cities = Tournament::select('city')->groupBy('city')->take(5)->get();
 
-        return view('main',
-        compact('tournaments', 'categories', 'countries', 'cities'));
+        return view(
+            'main',
+            compact('tournaments', 'categories', 'countries', 'cities')
+        );
     }
 }
